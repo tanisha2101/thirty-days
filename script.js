@@ -1,233 +1,236 @@
+/* =========================
+   COUNTDOWN
+========================= */
+
 const targetDate = new Date("September 6, 2026 00:00:00").getTime();
 
 const countdown = document.getElementById("countdown");
 
-setInterval(()=>{
+function updateCountdown() {
 
-const now=new Date().getTime();
+    const now = new Date().getTime();
 
-const distance=targetDate-now;
+    const distance = targetDate - now;
 
-const days=Math.floor(distance/(1000*60*60*24));
-
-const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
-const mins=Math.floor((distance%(1000*60*60))/(1000*60));
-
-const secs=Math.floor((distance%(1000*60))/1000);
-
-countdown.innerHTML=`
-${days} Days ❤️ ${hours} Hours ❤️ ${mins} Minutes ❤️ ${secs} Seconds
-`;
-
-},1000);
-
-const hero = document.querySelector(".hero");
-const letterPage = document.getElementById("daySection");
-
-document.getElementById("startBtn").onclick = () => {
-
-    hero.style.opacity = "0";
-
-    setTimeout(() => {
-
-        hero.style.display = "none";
-
-        letterPage.classList.remove("hidden");
-
-        letterPage.style.display = "flex";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }, 500);
-
-};
-
-const noBtn=document.getElementById("noBtn");
-
-noBtn.addEventListener("mouseenter",()=>{
-
-    const x = Math.random()*300 - 150;
-    const y = Math.random()*160 - 80;
-
-    noBtn.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random()*20-10}deg)`;
-
-});
-
-document.getElementById("yesBtn").onclick=()=>{
-
-document.getElementById("response").innerHTML = `
-🦉✨
-
-Your ticket has been accepted.
-
-Two seats are now waiting for us on the Hogwarts Express.
-
-Destination:
-
-A lifetime of adventures together.
-
-Until tomorrow...
-
-Love,
-
-Your Bui ❤️
-`;
-};
-/* ==========================
-   ✨ MAGIC EFFECTS
-========================== */
-
-// Floating Sparkles
-const sparkleContainer = document.getElementById("sparkles");
-
-function createSparkle() {
-
-    const sparkle = document.createElement("div");
-
-    sparkle.className = "sparkle";
-
-    sparkle.innerHTML = ["✨","⭐","✦","✧"][Math.floor(Math.random()*4)];
-
-    sparkle.style.left = Math.random()*100 + "vw";
-
-    sparkle.style.top = (70 + Math.random()*30) + "vh";
-
-    sparkle.style.animationDuration = (3 + Math.random()*3) + "s";
-
-    sparkleContainer.appendChild(sparkle);
-
-    setTimeout(()=>{
-        sparkle.remove();
-    },6000);
-
-}
-
-setInterval(createSparkle,500);
-
-
-/* ==========================
-   🪄 MAGIC CURSOR
-========================== */
-
-document.addEventListener("mousemove",(e)=>{
-
-    const trail = document.createElement("div");
-
-    trail.className="trail";
-
-    trail.style.left=e.pageX+"px";
-
-    trail.style.top=e.pageY+"px";
-
-    document.body.appendChild(trail);
-
-    setTimeout(()=>{
-        trail.remove();
-    },700);
-
-});
-
-
-/* ==========================
-   🚂 HOGWARTS EXPRESS
-========================== */
-
-const train = document.getElementById("train");
-
-window.addEventListener("scroll",()=>{
-
-    const scrollable =
-        document.documentElement.scrollHeight-window.innerHeight;
-
-    const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
-
-    train.style.left=(progress*100)+"%";
-
-});
-
-
-/* ==========================
-   ⚡ RANDOM MAGIC FLASH
-========================== */
-
-setInterval(()=>{
-
-    document.body.style.boxShadow=
-        "inset 0 0 200px rgba(255,255,255,.18)";
-
-    setTimeout(()=>{
-
-        document.body.style.boxShadow="";
-
-    },150);
-
-},12000);
-
-
-/* ==========================
-   💖 MAGIC YES EFFECT
-========================== */
-
-const oldYes = document.getElementById("yesBtn").onclick;
-
-document.getElementById("yesBtn").onclick = ()=>{
-
-    oldYes();
-
-    for(let i=0;i<40;i++){
-
-        setTimeout(()=>{
-
-            const heart=document.createElement("div");
-
-            heart.innerHTML=["❤️","✨","⭐","🦉"][Math.floor(Math.random()*4)];
-
-            heart.style.position="fixed";
-
-            heart.style.left=Math.random()*100+"vw";
-
-            heart.style.top="100vh";
-
-            heart.style.fontSize=(18+Math.random()*18)+"px";
-
-            heart.style.pointerEvents="none";
-
-            heart.style.transition="3s";
-
-            document.body.appendChild(heart);
-
-            requestAnimationFrame(()=>{
-
-                heart.style.top="-10vh";
-
-                heart.style.opacity="0";
-
-            });
-
-            setTimeout(()=>heart.remove(),3000);
-
-        },i*60);
-
+    if (distance <= 0) {
+        countdown.innerHTML = "🎂 It's your birthday! ❤️";
+        return;
     }
 
-};
+    const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60)) /
+        1000
+    );
+
+    countdown.innerHTML =
+        `${days} days · ${hours} hours · ${minutes} minutes · ${seconds} seconds`;
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+const homePage = document.getElementById("homePage");
+const letterPage = document.getElementById("letterPage");
 const questionPage = document.getElementById("questionPage");
 
-document.getElementById("nextScroll").onclick = () => {
+const openLetterBtn = document.getElementById("openLetterBtn");
+const continueBtn = document.getElementById("continueBtn");
 
-    letterPage.style.display = "none";
 
-    questionPage.classList.remove("hidden");
+openLetterBtn.addEventListener("click", () => {
 
-    questionPage.style.display = "flex";
+    homePage.classList.add("hidden");
+
+    letterPage.classList.remove("hidden");
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
 
-};
+});
+
+
+continueBtn.addEventListener("click", () => {
+
+    letterPage.classList.add("hidden");
+
+    questionPage.classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+
+/* =========================
+   NO BUTTON
+========================= */
+
+const noBtn = document.getElementById("noBtn");
+
+function moveNoButton() {
+
+    const x = Math.random() * 180 - 90;
+
+    const y = Math.random() * 120 - 60;
+
+    noBtn.style.transform =
+        `translate(${x}px, ${y}px) rotate(${Math.random() * 12 - 6}deg)`;
+}
+
+noBtn.addEventListener("mouseenter", moveNoButton);
+
+noBtn.addEventListener("touchstart", (event) => {
+
+    event.preventDefault();
+
+    moveNoButton();
+
+});
+
+
+/* =========================
+   YES BUTTON
+========================= */
+
+const yesBtn = document.getElementById("yesBtn");
+
+const response = document.getElementById("response");
+
+yesBtn.addEventListener("click", () => {
+
+    response.innerHTML = `
+        🧸❤️<br>
+        I knew you'd choose me.<br>
+        One more little memory for our jar.
+    `;
+
+    yesBtn.innerHTML = "A forever YES 🧸";
+
+    yesBtn.disabled = true;
+
+    addMemory();
+
+    createHearts();
+
+});
+
+
+/* =========================
+   MEMORY JAR
+========================= */
+
+const jarHearts = document.getElementById("jarHearts");
+
+function loadMemories() {
+
+    const memories =
+        parseInt(localStorage.getItem("nushiMemoryJar") || "0");
+
+    renderMemories(memories);
+}
+
+function renderMemories(count) {
+
+    if (count === 0) {
+
+        jarHearts.innerHTML = "♡";
+
+        return;
+    }
+
+    jarHearts.innerHTML =
+        "❤️".repeat(Math.min(count, 30));
+}
+
+function addMemory() {
+
+    let memories =
+        parseInt(localStorage.getItem("nushiMemoryJar") || "0");
+
+    if (memories < 30) {
+        memories++;
+    }
+
+    localStorage.setItem("nushiMemoryJar", memories);
+
+    renderMemories(memories);
+}
+
+loadMemories();
+
+
+/* =========================
+   LITTLE HEART ANIMATION
+========================= */
+
+function createHearts() {
+
+    for (let i = 0; i < 18; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.innerHTML =
+            ["❤️", "🧸", "♡", "✨"][
+                Math.floor(Math.random() * 4)
+            ];
+
+        heart.style.position = "fixed";
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.bottom = "-30px";
+
+        heart.style.fontSize =
+            (18 + Math.random() * 18) + "px";
+
+        heart.style.pointerEvents = "none";
+
+        heart.style.zIndex = "9999";
+
+        heart.style.transition =
+            "transform 3s ease, opacity 3s ease";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+
+            heart.style.transform =
+                `translateY(-${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg)`;
+
+            heart.style.opacity = "0";
+
+        }, 50 + i * 80);
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        }, 3500);
+
+    }
+}
