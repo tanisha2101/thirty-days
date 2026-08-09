@@ -11,21 +11,21 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
 
-    background:
-        radial-gradient(circle at 20% 10%, #fff9f3 0%, transparent 30%),
-        radial-gradient(circle at 80% 90%, #f5ddeb 0%, transparent 35%),
-        linear-gradient(135deg, #fff8f5, #f8e9f2);
-
-    color: #4b3942;
-
     min-height: 100vh;
 
     overflow-x: hidden;
+
+    color: #493b55;
+
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,.9), transparent 28%),
+        radial-gradient(circle at 85% 80%, rgba(184,150,255,.28), transparent 32%),
+        linear-gradient(135deg, #faf7ff, #eee6fb, #f8edf7);
 }
 
 
 /* =========================
-   PAGES
+   PAGE
 ========================= */
 
 .page {
@@ -36,7 +36,11 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 40px 20px;
+    padding: 35px 20px;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 .hidden {
@@ -45,10 +49,10 @@ body {
 
 
 /* =========================
-   FLOATING TOYS
+   FLOATING DECOR
 ========================= */
 
-.floating-toys {
+.floating-hearts {
     position: fixed;
 
     inset: 0;
@@ -60,59 +64,110 @@ body {
     z-index: 0;
 }
 
-.floating-toys span {
+.floating-hearts span {
     position: absolute;
 
-    opacity: 0.13;
+    opacity: .14;
 
-    font-size: 35px;
+    font-size: 32px;
 
-    animation: floatToy 12s infinite ease-in-out;
+    animation: float 9s infinite ease-in-out;
 }
 
-.floating-toys span:nth-child(1) {
+.floating-hearts span:nth-child(1) {
     left: 8%;
     top: 15%;
 }
 
-.floating-toys span:nth-child(2) {
-    right: 10%;
-    top: 25%;
+.floating-hearts span:nth-child(2) {
+    right: 12%;
+    top: 20%;
+
     animation-delay: 2s;
 }
 
-.floating-toys span:nth-child(3) {
-    left: 15%;
-    bottom: 15%;
+.floating-hearts span:nth-child(3) {
+    left: 14%;
+    bottom: 20%;
+
     animation-delay: 4s;
 }
 
-.floating-toys span:nth-child(4) {
-    right: 18%;
-    bottom: 20%;
+.floating-hearts span:nth-child(4) {
+    right: 17%;
+    bottom: 17%;
+
     animation-delay: 1s;
 }
 
-.floating-toys span:nth-child(5) {
+.floating-hearts span:nth-child(5) {
     left: 50%;
     top: 8%;
+
+    animation-delay: 3s;
+}
+
+.floating-hearts span:nth-child(6) {
+    right: 45%;
+    bottom: 8%;
+
     animation-delay: 5s;
 }
 
-.floating-toys span:nth-child(6) {
-    right: 45%;
-    bottom: 10%;
-    font-size: 45px;
-}
-
-@keyframes floatToy {
+@keyframes float {
 
     0%, 100% {
         transform: translateY(0) rotate(-5deg);
     }
 
     50% {
-        transform: translateY(-25px) rotate(5deg);
+        transform: translateY(-22px) rotate(6deg);
+    }
+}
+
+
+/* =========================
+   SPARKLES
+========================= */
+
+#sparkles {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+.sparkle {
+    position: absolute;
+
+    color: #9d72e8;
+
+    font-size: 15px;
+
+    animation: sparkleFloat 4s linear forwards;
+}
+
+@keyframes sparkleFloat {
+
+    0% {
+        opacity: 0;
+
+        transform: translateY(20px) scale(.4);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform: translateY(-180px) scale(1.3);
     }
 }
 
@@ -123,67 +178,65 @@ body {
 
 .homePage {
     text-align: center;
-
-    position: relative;
-    z-index: 1;
 }
 
 .homeContent {
-    max-width: 800px;
+    width: min(800px, 100%);
 }
 
-.tiny-label {
-    font-family: 'Dancing Script', cursive;
+.eyebrow {
+    font-size: 13px;
 
-    font-size: 28px;
+    letter-spacing: 4px;
 
-    color: #a65d7a;
+    color: #8d6aaa;
 
     margin-bottom: 15px;
 }
 
-.big-teddy {
-    font-size: 75px;
+.purpleHeart {
+    font-size: 68px;
 
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 
-    animation: teddyBounce 3s infinite ease-in-out;
+    filter: drop-shadow(0 5px 15px rgba(125,75,180,.25));
+
+    animation: heartPulse 2s infinite ease-in-out;
 }
 
-@keyframes teddyBounce {
+@keyframes heartPulse {
 
     0%, 100% {
-        transform: translateY(0);
+        transform: scale(1);
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: scale(1.08);
     }
 }
 
-h1,
-h2 {
-    font-family: 'DM Serif Display', serif;
-}
-
 .homePage h1 {
-    font-size: clamp(48px, 8vw, 78px);
+    font-family: 'DM Serif Display', serif;
 
-    line-height: 1.08;
+    font-size: clamp(50px, 8vw, 78px);
 
-    color: #9c3f61;
+    line-height: 1.05;
+
+    color: #70438f;
 
     margin-bottom: 25px;
+
+    text-shadow: 0 4px 20px rgba(111,67,143,.12);
 }
 
-.home-subtitle {
-    font-size: 20px;
+.subtitle {
+    font-size: 19px;
 
     font-weight: 300;
 
-    color: #765c68;
+    color: #695a72;
 
-    margin-bottom: 35px;
+    margin-bottom: 32px;
 }
 
 
@@ -194,21 +247,21 @@ h2 {
 #countdown {
     display: inline-block;
 
-    background: rgba(255, 255, 255, 0.7);
+    padding: 12px 22px;
 
-    padding: 13px 25px;
+    margin-bottom: 35px;
 
     border-radius: 50px;
 
-    font-size: 18px;
+    background: rgba(255,255,255,.75);
+
+    color: #795596;
+
+    font-size: 16px;
 
     font-weight: 500;
 
-    color: #8e526b;
-
-    box-shadow: 0 10px 30px rgba(140, 80, 110, 0.08);
-
-    margin-bottom: 35px;
+    box-shadow: 0 10px 30px rgba(90,50,120,.08);
 }
 
 
@@ -225,17 +278,11 @@ button {
 
     border-radius: 50px;
 
-    transition: all 0.3s ease;
+    transition: .3s ease;
 }
 
 .mainButton {
-    display: block;
-
-    margin: auto;
-
-    padding: 17px 32px;
-
-    background: #d86b92;
+    padding: 17px 34px;
 
     color: white;
 
@@ -243,15 +290,21 @@ button {
 
     font-weight: 500;
 
+    background: linear-gradient(
+        135deg,
+        #7650a8,
+        #9b69c8
+    );
+
     box-shadow:
-        0 12px 30px rgba(185, 82, 120, 0.25);
+        0 12px 30px rgba(112,68,150,.25);
 }
 
 .mainButton:hover {
     transform: translateY(-4px) scale(1.03);
 
     box-shadow:
-        0 18px 35px rgba(185, 82, 120, 0.3);
+        0 18px 38px rgba(112,68,150,.32);
 }
 
 
@@ -260,83 +313,83 @@ button {
 ========================= */
 
 .letterCard {
-    position: relative;
-
-    z-index: 2;
-
     width: min(780px, 100%);
 
-    background: #fffdf8;
+    background: rgba(255,253,255,.97);
 
-    padding: 50px clamp(25px, 6vw, 65px);
+    padding: 50px clamp(25px,6vw,65px);
 
     border-radius: 30px;
 
-    border: 1px solid #f0d9df;
+    border: 1px solid #dfd0ea;
 
     box-shadow:
-        0 25px 70px rgba(120, 70, 90, 0.14);
+        0 25px 70px rgba(80,45,105,.14);
 
     text-align: center;
 
-    animation: appear 0.7s ease;
+    animation: appear .7s ease;
 }
 
 @keyframes appear {
 
     from {
         opacity: 0;
+
         transform: translateY(25px);
     }
 
     to {
         opacity: 1;
+
         transform: translateY(0);
     }
 }
 
-.dayLabel {
-    font-size: 14px;
+.dayNumber {
+    font-size: 12px;
 
-    letter-spacing: 2px;
+    letter-spacing: 4px;
 
-    text-transform: uppercase;
+    color: #9168ae;
 
-    color: #b06a83;
+    font-weight: 600;
 
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
-.plushIcon {
-    font-size: 55px;
+.letterSymbol {
+    font-size: 52px;
 
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .letterCard h2 {
-    font-size: clamp(38px, 6vw, 55px);
+    font-family: 'DM Serif Display', serif;
 
-    color: #9c3f61;
+    font-size: clamp(38px,6vw,56px);
 
     line-height: 1.15;
 
-    margin-bottom: 10px;
+    color: #70438f;
+
+    margin-bottom: 12px;
 }
 
-.heartLine {
-    color: #d886a3;
+.stars {
+    color: #a27bc1;
 
-    letter-spacing: 10px;
+    letter-spacing: 6px;
 
     margin-bottom: 35px;
 }
 
 .letterText {
-    text-align: left;
-
     max-width: 620px;
 
     margin: auto;
+
+    text-align: left;
 }
 
 .letterText p {
@@ -344,7 +397,7 @@ button {
 
     line-height: 2;
 
-    color: #55434a;
+    color: #514659;
 
     margin-bottom: 22px;
 
@@ -354,21 +407,21 @@ button {
 .signature {
     font-family: 'Dancing Script', cursive;
 
-    font-size: 25px !important;
+    font-size: 27px !important;
 
-    color: #a34c6d !important;
+    color: #754794 !important;
 
     text-align: right;
 }
 
 .continueButton {
-    margin-top: 15px;
+    margin-top: 12px;
 
-    padding: 15px 30px;
+    padding: 15px 32px;
 
-    background: #f0c3d2;
+    background: #e6d8f0;
 
-    color: #713c50;
+    color: #624274;
 
     font-size: 16px;
 
@@ -376,67 +429,79 @@ button {
 }
 
 .continueButton:hover {
-    background: #e7a9bf;
-
     transform: translateY(-3px);
+
+    background: #d9c5e7;
 }
 
 
 /* =========================
-   QUESTION PAGE
+   QUESTION
 ========================= */
 
 .questionCard {
-    position: relative;
-
-    width: min(680px, 100%);
+    width: min(680px,100%);
 
     padding: 50px 30px;
 
-    background: rgba(255, 253, 248, 0.95);
+    background: rgba(255,253,255,.97);
 
     border-radius: 30px;
 
     text-align: center;
 
     box-shadow:
-        0 25px 70px rgba(120, 70, 90, 0.14);
+        0 25px 70px rgba(80,45,105,.15);
 
-    animation: appear 0.7s ease;
+    animation: appear .7s ease;
 }
 
-.questionTeddy {
-    font-size: 70px;
+.questionSymbol {
+    font-size: 65px;
+
+    margin-bottom: 10px;
+}
+
+.questionLabel {
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #9870b2;
 
     margin-bottom: 15px;
 }
 
 .questionCard h2 {
+    font-family: 'DM Serif Display', serif;
+
     font-size: 48px;
 
-    color: #9c3f61;
+    color: #70438f;
 
     margin-bottom: 25px;
 }
 
 .questionText {
+    max-width: 520px;
+
+    margin: auto;
+
     font-size: 18px;
 
     line-height: 1.9;
 
-    color: #6d5861;
-
-    margin-bottom: 20px;
+    color: #675b6c;
 }
 
 .questionBig {
     font-family: 'Dancing Script', cursive;
 
-    font-size: 31px;
+    font-size: 32px;
 
-    color: #a34568;
+    color: #754794;
 
-    margin-bottom: 30px;
+    margin: 25px 0 32px;
 }
 
 
@@ -447,7 +512,7 @@ button {
 .buttons {
     position: relative;
 
-    min-height: 65px;
+    min-height: 70px;
 
     display: flex;
 
@@ -459,9 +524,13 @@ button {
 }
 
 #yesBtn {
-    padding: 15px 28px;
+    padding: 15px 30px;
 
-    background: #d86b92;
+    background: linear-gradient(
+        135deg,
+        #7650a8,
+        #a06bd0
+    );
 
     color: white;
 
@@ -470,7 +539,7 @@ button {
     font-weight: 600;
 
     box-shadow:
-        0 10px 25px rgba(216, 107, 146, 0.25);
+        0 10px 25px rgba(112,68,150,.25);
 }
 
 #yesBtn:hover {
@@ -478,16 +547,21 @@ button {
 }
 
 #noBtn {
-    padding: 15px 28px;
+    padding: 15px 30px;
 
-    background: #eee8eb;
+    background: #eeeaf0;
 
-    color: #6e6267;
+    color: #6e6571;
 
     font-size: 16px;
 
     position: relative;
 }
+
+
+/* =========================
+   RESPONSE
+========================= */
 
 #response {
     min-height: 70px;
@@ -500,7 +574,7 @@ button {
 
     line-height: 1.5;
 
-    color: #a34568;
+    color: #754794;
 }
 
 
@@ -509,23 +583,23 @@ button {
 ========================= */
 
 .memoryJar {
-    margin: 35px auto 0;
+    max-width: 420px;
+
+    margin: 30px auto 0;
 
     padding: 20px;
 
-    max-width: 400px;
-
-    background: #fff5f8;
-
     border-radius: 20px;
 
-    border: 1px solid #f1d4df;
+    background: #f7f0fb;
+
+    border: 1px solid #e1d3eb;
 }
 
-.jarTitle {
-    font-weight: 600;
+.jarHeader {
+    color: #70438f;
 
-    color: #95506b;
+    font-weight: 600;
 
     margin-bottom: 10px;
 }
@@ -533,9 +607,9 @@ button {
 #jarHearts {
     min-height: 35px;
 
-    font-size: 23px;
+    font-size: 21px;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
     word-break: break-word;
 
@@ -545,7 +619,7 @@ button {
 .memoryJar p {
     font-size: 12px;
 
-    color: #9b7b87;
+    color: #927fa0;
 }
 
 
@@ -553,22 +627,22 @@ button {
    MOBILE
 ========================= */
 
-@media (max-width: 600px) {
+@media (max-width:600px) {
 
     .page {
         padding: 25px 15px;
     }
 
     .homePage h1 {
-        font-size: 50px;
+        font-size: 51px;
     }
 
-    .big-teddy {
-        font-size: 65px;
+    .purpleHeart {
+        font-size: 58px;
     }
 
     #countdown {
-        font-size: 14px;
+        font-size: 13px;
 
         padding: 11px 15px;
     }
@@ -578,14 +652,14 @@ button {
         padding: 35px 22px;
     }
 
+    .letterCard h2 {
+        font-size: 39px;
+    }
+
     .letterText p {
         font-size: 16px;
 
         line-height: 1.9;
-    }
-
-    .letterCard h2 {
-        font-size: 38px;
     }
 
     .questionCard h2 {
@@ -597,6 +671,6 @@ button {
     }
 
     .questionBig {
-        font-size: 27px;
+        font-size: 28px;
     }
 }
