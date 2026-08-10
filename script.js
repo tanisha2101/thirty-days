@@ -17,36 +17,32 @@ function updateCountdown() {
     if (distance <= 0) {
 
         countdown.innerHTML =
-            "🎂 It's your birthday! 💜";
+            "🎂 It's your birthday! ❤️";
 
         return;
     }
 
     const days =
         Math.floor(
-            distance /
-            (1000 * 60 * 60 * 24)
+            distance / (1000 * 60 * 60 * 24)
         );
 
     const hours =
         Math.floor(
-            (distance %
-            (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
+            (distance % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
         );
 
     const minutes =
         Math.floor(
-            (distance %
-            (1000 * 60 * 60)) /
-            (1000 * 60)
+            (distance % (1000 * 60 * 60))
+            / (1000 * 60)
         );
 
     const seconds =
         Math.floor(
-            (distance %
-            (1000 * 60)) /
-            1000
+            (distance % (1000 * 60))
+            / 1000
         );
 
     countdown.innerHTML =
@@ -78,8 +74,6 @@ const continueBtn =
     document.getElementById("continueBtn");
 
 
-/* HOME → LETTER */
-
 openLetterBtn.addEventListener("click", () => {
 
     homePage.classList.add("hidden");
@@ -93,8 +87,6 @@ openLetterBtn.addEventListener("click", () => {
 
 });
 
-
-/* LETTER → QUESTION */
 
 continueBtn.addEventListener("click", () => {
 
@@ -126,7 +118,7 @@ function moveNoButton() {
         Math.random() * 120 - 60;
 
     noBtn.style.transform =
-        `translate(${x}px,${y}px) rotate(${Math.random() * 12 - 6}deg)`;
+        `translate(${x}px, ${y}px)`;
 }
 
 noBtn.addEventListener(
@@ -158,19 +150,19 @@ const response =
 yesBtn.addEventListener("click", () => {
 
     response.innerHTML = `
-        💜✨<br>
-        Then I guess we're stuck with each other.<br>
-        And honestly... I wouldn't have it any other way.
+        📖❤️<br>
+        Then let's keep writing it.<br>
+        One chapter at a time.
     `;
 
     yesBtn.innerHTML =
-        "Always you 💜";
+        "Chapter continues ❤️";
 
     yesBtn.disabled = true;
 
     addMemory();
 
-    createPurpleHearts();
+    createBookCelebration();
 });
 
 
@@ -185,9 +177,7 @@ function loadMemories() {
 
     const memories =
         parseInt(
-            localStorage.getItem(
-                "nushiMemoryJar"
-            ) || "0"
+            localStorage.getItem("nushiMemoryJar") || "0"
         );
 
     renderMemories(memories);
@@ -203,7 +193,7 @@ function renderMemories(count) {
     }
 
     jarHearts.innerHTML =
-        "💜".repeat(
+        "❤️".repeat(
             Math.min(count, 30)
         );
 }
@@ -212,13 +202,10 @@ function addMemory() {
 
     let memories =
         parseInt(
-            localStorage.getItem(
-                "nushiMemoryJar"
-            ) || "0"
+            localStorage.getItem("nushiMemoryJar") || "0"
         );
 
     if (memories < 30) {
-
         memories++;
     }
 
@@ -234,104 +221,95 @@ loadMemories();
 
 
 /* =========================
-   PURPLE HEART CELEBRATION
+   BOOK PAGE EFFECT
 ========================= */
 
-function createPurpleHearts() {
+const particleContainer =
+    document.getElementById("bookParticles");
 
-    for (let i = 0; i < 22; i++) {
+function createParticle() {
 
-        const heart =
+    const particle =
+        document.createElement("div");
+
+    particle.className = "particle";
+
+    particle.innerHTML =
+        ["✦", "✧", "♡", "•", "📖"][
+            Math.floor(Math.random() * 5)
+        ];
+
+    particle.style.left =
+        Math.random() * 100 + "vw";
+
+    particle.style.top =
+        (70 + Math.random() * 30) + "vh";
+
+    particle.style.fontSize =
+        (10 + Math.random() * 13) + "px";
+
+    particle.style.animationDuration =
+        (4 + Math.random() * 3) + "s";
+
+    particleContainer.appendChild(particle);
+
+    setTimeout(() => {
+        particle.remove();
+    }, 7000);
+}
+
+setInterval(createParticle, 700);
+
+
+/* =========================
+   YES CELEBRATION
+========================= */
+
+function createBookCelebration() {
+
+    for (let i = 0; i < 25; i++) {
+
+        const item =
             document.createElement("div");
 
-        heart.innerHTML =
-            ["💜", "✨", "♡", "✦"][
-                Math.floor(
-                    Math.random() * 4
-                )
+        item.innerHTML =
+            ["❤️", "📖", "✦", "✨", "♡"][
+                Math.floor(Math.random() * 5)
             ];
 
-        heart.style.position = "fixed";
+        item.style.position = "fixed";
 
-        heart.style.left =
+        item.style.left =
             Math.random() * 100 + "vw";
 
-        heart.style.bottom = "-30px";
+        item.style.bottom = "-30px";
 
-        heart.style.fontSize =
-            (17 + Math.random() * 18) + "px";
+        item.style.fontSize =
+            (16 + Math.random() * 18) + "px";
 
-        heart.style.pointerEvents =
-            "none";
+        item.style.pointerEvents = "none";
 
-        heart.style.zIndex = "9999";
+        item.style.zIndex = "9999";
 
-        heart.style.transition =
+        item.style.transition =
             "transform 3s ease, opacity 3s ease";
 
-        document.body.appendChild(heart);
+        document.body.appendChild(item);
 
         setTimeout(() => {
 
-            heart.style.transform =
+            item.style.transform =
                 `translateY(-${window.innerHeight + 100}px)
                  rotate(${Math.random() * 360}deg)`;
 
-            heart.style.opacity = "0";
+            item.style.opacity = "0";
 
-        }, 50 + i * 80);
+        }, 50 + i * 70);
 
         setTimeout(() => {
 
-            heart.remove();
+            item.remove();
 
         }, 3500);
     }
 }
-
-
-/* =========================
-   BACKGROUND SPARKLES
-========================= */
-
-const sparkleContainer =
-    document.getElementById("sparkles");
-
-function createSparkle() {
-
-    const sparkle =
-        document.createElement("div");
-
-    sparkle.className = "sparkle";
-
-    sparkle.innerHTML =
-        ["✦", "✧", "✨", "♡"][
-            Math.floor(
-                Math.random() * 4
-            )
-        ];
-
-    sparkle.style.left =
-        Math.random() * 100 + "vw";
-
-    sparkle.style.top =
-        (70 + Math.random() * 30) + "vh";
-
-    sparkle.style.animationDuration =
-        (3 + Math.random() * 3) + "s";
-
-    sparkleContainer.appendChild(
-        sparkle
-    );
-
-    setTimeout(() => {
-
-        sparkle.remove();
-
-    }, 6000);
-}
-
-setInterval(
-    createSparkle,
-    650
-);
