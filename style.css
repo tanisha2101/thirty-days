@@ -15,17 +15,17 @@ body {
 
     overflow-x: hidden;
 
-    color: #493b55;
+    color: #44372f;
 
     background:
-        radial-gradient(circle at 15% 15%, rgba(255,255,255,.9), transparent 28%),
-        radial-gradient(circle at 85% 80%, rgba(184,150,255,.28), transparent 32%),
-        linear-gradient(135deg, #faf7ff, #eee6fb, #f8edf7);
+        radial-gradient(circle at 20% 10%, #fffdf6, transparent 30%),
+        radial-gradient(circle at 85% 80%, #ead7c4, transparent 35%),
+        linear-gradient(135deg, #f8f0e5, #eee0d0, #faf5ec);
 }
 
 
 /* =========================
-   PAGE
+   GENERAL
 ========================= */
 
 .page {
@@ -49,10 +49,10 @@ body {
 
 
 /* =========================
-   FLOATING DECOR
+   FLOATING BOOK ELEMENTS
 ========================= */
 
-.floating-hearts {
+.floatingBooks {
     position: fixed;
 
     inset: 0;
@@ -64,73 +64,68 @@ body {
     z-index: 0;
 }
 
-.floating-hearts span {
+.floatingBooks span {
     position: absolute;
 
-    opacity: .14;
+    opacity: .13;
 
     font-size: 32px;
 
-    animation: float 9s infinite ease-in-out;
+    animation: floatBook 9s ease-in-out infinite;
 }
 
-.floating-hearts span:nth-child(1) {
+.floatingBooks span:nth-child(1) {
     left: 8%;
     top: 15%;
 }
 
-.floating-hearts span:nth-child(2) {
+.floatingBooks span:nth-child(2) {
     right: 12%;
     top: 20%;
-
     animation-delay: 2s;
 }
 
-.floating-hearts span:nth-child(3) {
-    left: 14%;
-    bottom: 20%;
-
+.floatingBooks span:nth-child(3) {
+    left: 12%;
+    bottom: 18%;
     animation-delay: 4s;
 }
 
-.floating-hearts span:nth-child(4) {
-    right: 17%;
-    bottom: 17%;
-
+.floatingBooks span:nth-child(4) {
+    right: 15%;
+    bottom: 20%;
     animation-delay: 1s;
 }
 
-.floating-hearts span:nth-child(5) {
+.floatingBooks span:nth-child(5) {
     left: 50%;
     top: 8%;
-
     animation-delay: 3s;
 }
 
-.floating-hearts span:nth-child(6) {
+.floatingBooks span:nth-child(6) {
     right: 45%;
     bottom: 8%;
-
     animation-delay: 5s;
 }
 
-@keyframes float {
+@keyframes floatBook {
 
     0%, 100% {
-        transform: translateY(0) rotate(-5deg);
+        transform: translateY(0) rotate(-4deg);
     }
 
     50% {
-        transform: translateY(-22px) rotate(6deg);
+        transform: translateY(-20px) rotate(5deg);
     }
 }
 
 
 /* =========================
-   SPARKLES
+   PARTICLES
 ========================= */
 
-#sparkles {
+#bookParticles {
     position: fixed;
 
     inset: 0;
@@ -142,32 +137,28 @@ body {
     z-index: 1;
 }
 
-.sparkle {
+.particle {
     position: absolute;
 
-    color: #9d72e8;
+    color: #9a7657;
 
-    font-size: 15px;
-
-    animation: sparkleFloat 4s linear forwards;
+    animation: particleFloat 5s linear forwards;
 }
 
-@keyframes sparkleFloat {
+@keyframes particleFloat {
 
     0% {
         opacity: 0;
-
-        transform: translateY(20px) scale(.4);
+        transform: translateY(20px) rotate(0deg);
     }
 
     20% {
-        opacity: 1;
+        opacity: .8;
     }
 
     100% {
         opacity: 0;
-
-        transform: translateY(-180px) scale(1.3);
+        transform: translateY(-180px) rotate(90deg);
     }
 }
 
@@ -185,33 +176,33 @@ body {
 }
 
 .eyebrow {
-    font-size: 13px;
+    font-size: 12px;
 
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 
-    color: #8d6aaa;
+    color: #8b6b52;
 
     margin-bottom: 15px;
 }
 
-.purpleHeart {
+.bookIcon {
     font-size: 68px;
 
     margin-bottom: 8px;
 
-    filter: drop-shadow(0 5px 15px rgba(125,75,180,.25));
+    filter: drop-shadow(0 8px 12px rgba(80,50,30,.15));
 
-    animation: heartPulse 2s infinite ease-in-out;
+    animation: bookFloat 3s ease-in-out infinite;
 }
 
-@keyframes heartPulse {
+@keyframes bookFloat {
 
     0%, 100% {
-        transform: scale(1);
+        transform: translateY(0);
     }
 
     50% {
-        transform: scale(1.08);
+        transform: translateY(-8px);
     }
 }
 
@@ -222,21 +213,25 @@ body {
 
     line-height: 1.05;
 
-    color: #70438f;
+    color: #714638;
 
     margin-bottom: 25px;
-
-    text-shadow: 0 4px 20px rgba(111,67,143,.12);
 }
 
 .subtitle {
-    font-size: 19px;
+    max-width: 600px;
 
-    font-weight: 300;
+    margin: auto auto 32px;
 
-    color: #695a72;
+    font-family: 'Playfair Display', serif;
 
-    margin-bottom: 32px;
+    font-size: 20px;
+
+    font-style: italic;
+
+    line-height: 1.7;
+
+    color: #6c5a4e;
 }
 
 
@@ -253,15 +248,15 @@ body {
 
     border-radius: 50px;
 
-    background: rgba(255,255,255,.75);
+    background: rgba(255,255,255,.72);
 
-    color: #795596;
+    color: #795b48;
 
-    font-size: 16px;
+    font-size: 15px;
 
     font-weight: 500;
 
-    box-shadow: 0 10px 30px rgba(90,50,120,.08);
+    box-shadow: 0 10px 30px rgba(80,50,30,.08);
 }
 
 
@@ -282,104 +277,111 @@ button {
 }
 
 .mainButton {
-    padding: 17px 34px;
+    padding: 17px 35px;
 
-    color: white;
+    background: linear-gradient(
+        135deg,
+        #714638,
+        #9a6753
+    );
+
+    color: #fffaf2;
 
     font-size: 17px;
 
     font-weight: 500;
 
-    background: linear-gradient(
-        135deg,
-        #7650a8,
-        #9b69c8
-    );
-
     box-shadow:
-        0 12px 30px rgba(112,68,150,.25);
+        0 12px 30px rgba(100,60,40,.25);
 }
 
 .mainButton:hover {
     transform: translateY(-4px) scale(1.03);
 
     box-shadow:
-        0 18px 38px rgba(112,68,150,.32);
+        0 18px 40px rgba(100,60,40,.3);
 }
 
 
 /* =========================
-   LETTER
+   BOOK / LETTER CARD
 ========================= */
 
-.letterCard {
+.bookCard {
     width: min(780px, 100%);
 
-    background: rgba(255,253,255,.97);
+    background:
+        linear-gradient(
+            rgba(255,252,244,.96),
+            rgba(248,239,224,.96)
+        );
 
     padding: 50px clamp(25px,6vw,65px);
 
-    border-radius: 30px;
+    border-radius: 8px 25px 25px 8px;
 
-    border: 1px solid #dfd0ea;
+    border-left: 8px solid #714638;
 
     box-shadow:
-        0 25px 70px rgba(80,45,105,.14);
+        0 25px 70px rgba(70,45,30,.18),
+        inset 10px 0 20px rgba(100,60,40,.05);
 
     text-align: center;
 
-    animation: appear .7s ease;
+    animation: pageAppear .7s ease;
 }
 
-@keyframes appear {
+@keyframes pageAppear {
 
     from {
         opacity: 0;
-
-        transform: translateY(25px);
+        transform: translateY(25px) rotateX(5deg);
     }
 
     to {
         opacity: 1;
-
-        transform: translateY(0);
+        transform: translateY(0) rotateX(0);
     }
 }
 
-.dayNumber {
-    font-size: 12px;
+.pageNumber {
+    font-size: 11px;
 
     letter-spacing: 4px;
 
-    color: #9168ae;
+    color: #9a7657;
 
-    font-weight: 600;
-
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 }
 
-.letterSymbol {
-    font-size: 52px;
+.bookDecoration {
+    color: #a17a58;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+}
+
+.bookCard h2 {
+    font-family: 'DM Serif Display', serif;
+
+    font-size: clamp(40px,6vw,57px);
+
+    line-height: 1.15;
+
+    color: #714638;
 
     margin-bottom: 8px;
 }
 
-.letterCard h2 {
-    font-family: 'DM Serif Display', serif;
+.chapterTitle {
+    font-family: 'Playfair Display', serif;
 
-    font-size: clamp(38px,6vw,56px);
+    font-size: 17px;
 
-    line-height: 1.15;
+    font-style: italic;
 
-    color: #70438f;
-
-    margin-bottom: 12px;
-}
-
-.stars {
-    color: #a27bc1;
-
-    letter-spacing: 6px;
+    color: #8a6b58;
 
     margin-bottom: 35px;
 }
@@ -393,11 +395,13 @@ button {
 }
 
 .letterText p {
+    font-family: 'Playfair Display', serif;
+
     font-size: 17px;
 
     line-height: 2;
 
-    color: #514659;
+    color: #4f4037;
 
     margin-bottom: 22px;
 
@@ -405,11 +409,11 @@ button {
 }
 
 .signature {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Dancing Script', cursive !important;
 
-    font-size: 27px !important;
+    font-size: 28px !important;
 
-    color: #754794 !important;
+    color: #714638 !important;
 
     text-align: right;
 }
@@ -419,19 +423,19 @@ button {
 
     padding: 15px 32px;
 
-    background: #e6d8f0;
+    background: #714638;
 
-    color: #624274;
+    color: #fffaf2;
 
     font-size: 16px;
 
-    font-weight: 500;
+    box-shadow: 0 10px 25px rgba(100,60,40,.2);
 }
 
 .continueButton:hover {
     transform: translateY(-3px);
 
-    background: #d9c5e7;
+    background: #8c5a48;
 }
 
 
@@ -444,30 +448,30 @@ button {
 
     padding: 50px 30px;
 
-    background: rgba(255,253,255,.97);
+    background: rgba(255,252,245,.97);
 
-    border-radius: 30px;
+    border-radius: 25px;
 
     text-align: center;
 
     box-shadow:
-        0 25px 70px rgba(80,45,105,.15);
+        0 25px 70px rgba(70,45,30,.15);
 
-    animation: appear .7s ease;
+    animation: pageAppear .7s ease;
 }
 
-.questionSymbol {
-    font-size: 65px;
+.questionIcon {
+    font-size: 62px;
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .questionLabel {
-    font-size: 12px;
+    font-size: 11px;
 
     letter-spacing: 3px;
 
-    color: #9870b2;
+    color: #9a7657;
 
     margin-bottom: 15px;
 }
@@ -475,9 +479,9 @@ button {
 .questionCard h2 {
     font-family: 'DM Serif Display', serif;
 
-    font-size: 48px;
+    font-size: 47px;
 
-    color: #70438f;
+    color: #714638;
 
     margin-bottom: 25px;
 }
@@ -487,11 +491,13 @@ button {
 
     margin: auto;
 
+    font-family: 'Playfair Display', serif;
+
     font-size: 18px;
 
     line-height: 1.9;
 
-    color: #675b6c;
+    color: #66564c;
 }
 
 .questionBig {
@@ -499,7 +505,7 @@ button {
 
     font-size: 32px;
 
-    color: #754794;
+    color: #714638;
 
     margin: 25px 0 32px;
 }
@@ -526,11 +532,7 @@ button {
 #yesBtn {
     padding: 15px 30px;
 
-    background: linear-gradient(
-        135deg,
-        #7650a8,
-        #a06bd0
-    );
+    background: #714638;
 
     color: white;
 
@@ -539,7 +541,7 @@ button {
     font-weight: 600;
 
     box-shadow:
-        0 10px 25px rgba(112,68,150,.25);
+        0 10px 25px rgba(100,60,40,.25);
 }
 
 #yesBtn:hover {
@@ -549,9 +551,9 @@ button {
 #noBtn {
     padding: 15px 30px;
 
-    background: #eeeaf0;
+    background: #e7dfd7;
 
-    color: #6e6571;
+    color: #6c5d53;
 
     font-size: 16px;
 
@@ -574,7 +576,7 @@ button {
 
     line-height: 1.5;
 
-    color: #754794;
+    color: #714638;
 }
 
 
@@ -583,21 +585,21 @@ button {
 ========================= */
 
 .memoryJar {
-    max-width: 420px;
+    max-width: 430px;
 
     margin: 30px auto 0;
 
     padding: 20px;
 
-    border-radius: 20px;
+    border-radius: 18px;
 
-    background: #f7f0fb;
+    background: #f3e8da;
 
-    border: 1px solid #e1d3eb;
+    border: 1px solid #dfcbb7;
 }
 
 .jarHeader {
-    color: #70438f;
+    color: #714638;
 
     font-weight: 600;
 
@@ -619,7 +621,7 @@ button {
 .memoryJar p {
     font-size: 12px;
 
-    color: #927fa0;
+    color: #927b6a;
 }
 
 
@@ -627,7 +629,7 @@ button {
    MOBILE
 ========================= */
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
 
     .page {
         padding: 25px 15px;
@@ -637,28 +639,26 @@ button {
         font-size: 51px;
     }
 
-    .purpleHeart {
+    .bookIcon {
         font-size: 58px;
     }
 
     #countdown {
         font-size: 13px;
-
         padding: 11px 15px;
     }
 
-    .letterCard,
+    .bookCard,
     .questionCard {
         padding: 35px 22px;
     }
 
-    .letterCard h2 {
-        font-size: 39px;
+    .bookCard h2 {
+        font-size: 40px;
     }
 
     .letterText p {
         font-size: 16px;
-
         line-height: 1.9;
     }
 
