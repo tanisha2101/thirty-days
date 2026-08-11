@@ -103,42 +103,7 @@ continueBtn.addEventListener("click", () => {
 
 
 /* =========================
-   NO BUTTON
-========================= */
-
-const noBtn =
-    document.getElementById("noBtn");
-
-function moveNoButton() {
-
-    const x =
-        Math.random() * 180 - 90;
-
-    const y =
-        Math.random() * 120 - 60;
-
-    noBtn.style.transform =
-        `translate(${x}px, ${y}px)`;
-}
-
-noBtn.addEventListener(
-    "mouseenter",
-    moveNoButton
-);
-
-noBtn.addEventListener(
-    "touchstart",
-    function(event) {
-
-        event.preventDefault();
-
-        moveNoButton();
-    }
-);
-
-
-/* =========================
-   YES BUTTON
+   YES
 ========================= */
 
 const yesBtn =
@@ -150,165 +115,111 @@ const response =
 yesBtn.addEventListener("click", () => {
 
     response.innerHTML = `
-        📖❤️<br>
-        Then let's keep writing it.<br>
-        One chapter at a time.
+        🌹<br>
+        Then we'll take it one day at a time.<br>
+        No matter how difficult the day gets,
+        you don't have to face it alone. ❤️
     `;
 
     yesBtn.innerHTML =
-        "Chapter continues ❤️";
+        "I'm here too. ❤️";
 
     yesBtn.disabled = true;
 
-    addMemory();
-
-    createBookCelebration();
+    createRoseCelebration();
 });
 
 
 /* =========================
-   MEMORY JAR
+   FALLING ROSE PETALS
 ========================= */
 
-const jarHearts =
-    document.getElementById("jarHearts");
+const petalContainer =
+    document.getElementById("rosePetals");
 
-function loadMemories() {
+function createPetal() {
 
-    const memories =
-        parseInt(
-            localStorage.getItem("nushiMemoryJar") || "0"
-        );
-
-    renderMemories(memories);
-}
-
-function renderMemories(count) {
-
-    if (count === 0) {
-
-        jarHearts.innerHTML = "♡";
-
-        return;
-    }
-
-    jarHearts.innerHTML =
-        "❤️".repeat(
-            Math.min(count, 30)
-        );
-}
-
-function addMemory() {
-
-    let memories =
-        parseInt(
-            localStorage.getItem("nushiMemoryJar") || "0"
-        );
-
-    if (memories < 30) {
-        memories++;
-    }
-
-    localStorage.setItem(
-        "nushiMemoryJar",
-        memories
-    );
-
-    renderMemories(memories);
-}
-
-loadMemories();
-
-
-/* =========================
-   BOOK PAGE EFFECT
-========================= */
-
-const particleContainer =
-    document.getElementById("bookParticles");
-
-function createParticle() {
-
-    const particle =
+    const petal =
         document.createElement("div");
 
-    particle.className = "particle";
+    petal.className = "petal";
 
-    particle.innerHTML =
-        ["✦", "✧", "♡", "•", "📖"][
-            Math.floor(Math.random() * 5)
+    petal.innerHTML =
+        ["🌸", "♡", "✿", "❀"][
+            Math.floor(Math.random() * 4)
         ];
 
-    particle.style.left =
+    petal.style.left =
         Math.random() * 100 + "vw";
 
-    particle.style.top =
-        (70 + Math.random() * 30) + "vh";
+    petal.style.top = "-30px";
 
-    particle.style.fontSize =
-        (10 + Math.random() * 13) + "px";
+    petal.style.fontSize =
+        (10 + Math.random() * 12) + "px";
 
-    particle.style.animationDuration =
-        (4 + Math.random() * 3) + "s";
+    petal.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
 
-    particleContainer.appendChild(particle);
+    petalContainer.appendChild(petal);
 
     setTimeout(() => {
-        particle.remove();
-    }, 7000);
+
+        petal.remove();
+
+    }, 10000);
 }
 
-setInterval(createParticle, 700);
+setInterval(createPetal, 900);
 
 
 /* =========================
-   YES CELEBRATION
+   ROSE CELEBRATION
 ========================= */
 
-function createBookCelebration() {
+function createRoseCelebration() {
 
     for (let i = 0; i < 25; i++) {
 
-        const item =
+        const rose =
             document.createElement("div");
 
-        item.innerHTML =
-            ["❤️", "📖", "✦", "✨", "♡"][
-                Math.floor(Math.random() * 5)
+        rose.innerHTML =
+            ["🌹", "🌸", "♡", "✦"][
+                Math.floor(Math.random() * 4)
             ];
 
-        item.style.position = "fixed";
+        rose.style.position = "fixed";
 
-        item.style.left =
+        rose.style.left =
             Math.random() * 100 + "vw";
 
-        item.style.bottom = "-30px";
+        rose.style.bottom = "-30px";
 
-        item.style.fontSize =
-            (16 + Math.random() * 18) + "px";
+        rose.style.fontSize =
+            (17 + Math.random() * 16) + "px";
 
-        item.style.pointerEvents = "none";
+        rose.style.pointerEvents = "none";
 
-        item.style.zIndex = "9999";
+        rose.style.zIndex = "9999";
 
-        item.style.transition =
+        rose.style.transition =
             "transform 3s ease, opacity 3s ease";
 
-        document.body.appendChild(item);
+        document.body.appendChild(rose);
 
         setTimeout(() => {
 
-            item.style.transform =
+            rose.style.transform =
                 `translateY(-${window.innerHeight + 100}px)
                  rotate(${Math.random() * 360}deg)`;
 
-            item.style.opacity = "0";
+            rose.style.opacity = "0";
 
         }, 50 + i * 70);
 
         setTimeout(() => {
 
-            item.remove();
+            rose.remove();
 
         }, 3500);
     }
