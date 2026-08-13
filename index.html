@@ -1,195 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Thirty Days, One Heart 🌙</title>
+<title>Thirty Days, One Heart ❤️</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div id="stars"></div>
+<!-- WEATHER EFFECTS -->
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
 
-    <div class="moonGlow"></div>
+<div id="rain"></div>
+<div id="sparkles"></div>
 
-    <div class="floatingStars">
-        <span>✦</span>
-        <span>✧</span>
-        <span>✦</span>
-        <span>✧</span>
-        <span>⋆</span>
-        <span>✦</span>
+<!-- HERO -->
+<section class="hero" id="hero">
+
+    <div class="weatherIcon">☁️</div>
+
+    <h3>A Little Weather Report For You ☁️</h3>
+
+    <h1>
+        Twenty-Four Sunsets,<br>
+        Until Your Birthday
+    </h1>
+
+    <p class="quote">
+        Some days arrive with sunshine.
+        Some arrive with clouds.
+        But somehow, the sky always finds its way back to blue.
+    </p>
+
+    <div id="countdown"></div>
+
+    <button id="startBtn">
+        ☔ Open Today's Letter
+    </button>
+
+</section>
+
+
+<!-- LETTER -->
+<section class="hidden" id="daySection">
+
+    <div class="letterCard">
+
+        <div class="smallDate">
+            AUGUST 13 • DAY 24
+        </div>
+
+        <div class="weatherStamp">
+            🌦️
+        </div>
+
+        <h2>
+            For The Girl Who Makes<br>
+            Even Cloudy Days Beautiful
+        </h2>
+
+        <div class="letter">
+
+            <p>
+Dear Mou, ❤️
+
+I think life is a little like the weather.
+
+There are days when everything feels bright and easy, and then there are days when the sky suddenly becomes cloudy and you don't really know when the rain will stop.
+
+But I've always believed that bad weather doesn't mean the sky has forgotten how to be blue.
+
+Some days are simply harder than others.
+
+You have this incredible way of getting through things, even when they feel overwhelming. You keep going, you keep growing, and somehow you still manage to bring a little warmth wherever you go.
+
+Life isn't always going to be easy.
+
+There will be stressful days, confusing days, and days when nothing seems to make sense.
+
+But someday, the clouds pass.
+
+The rain stops.
+
+And the sun comes back.
+
+I think that's what I love most about having you in my life.
+
+Even the ordinary days somehow feel a little better with you in them.
+
+So wherever life takes us, through sunshine or storms, I just hope there are still plenty of beautiful skies waiting for us ahead.
+
+Until tomorrow...
+
+Love,
+
+Your Bui ❤️
+            </p>
+
+        </div>
+
+        <button id="continueBtn">
+            Let The Clouds Pass ☁️
+        </button>
+
     </div>
 
+</section>
 
-    <!-- HOME -->
 
-    <section id="homePage" class="page homePage">
+<!-- QUESTION -->
+<section class="hidden" id="questionSection">
 
-        <div class="homeContent">
+    <div class="questionCard">
 
-            <p class="date">
-                12 · 08 · 2026
-            </p>
+        <div class="sunset">🌤️</div>
 
-            <div class="moon">
-                🌙
-            </div>
+        <h2>
+            One Little Question...
+        </h2>
 
-            <h1>
-                Thirty Days,<br>
-                One Heart
-            </h1>
+        <p class="questionText">
+            If we could disappear somewhere quiet,
+            wait for the rain to stop,
+            and watch the sunset together...
 
-            <p class="subtitle">
-                Some people are their own kind of light.
-            </p>
+            <br><br>
 
-            <div id="countdown"></div>
+            Would you come with me? 🌅
+        </p>
 
-            <button id="openLetterBtn">
-                ✦ Open Today's Letter
+        <div class="buttons">
+
+            <button id="yesBtn">
+                Yes, I would ❤️
+            </button>
+
+            <button id="noBtn">
+                Maybe not 🙈
             </button>
 
         </div>
 
-    </section>
+        <p id="response"></p>
+
+    </div>
+
+</section>
 
 
-    <!-- LETTER -->
-
-    <section id="letterPage" class="page hidden">
-
-        <div class="letterCard">
-
-            <p class="dayNumber">
-                DAY 25
-            </p>
-
-            <div class="divider">
-                ✦ ───────── ✦
-            </div>
-
-            <h2>
-                For The Girl Who Keeps Going
-            </h2>
-
-            <p class="smallHeading">
-                Just something I hope you remember.
-            </p>
-
-
-            <div class="letter">
-
-                <p>
-Dear Mou, ❤️
-                </p>
-
-                <p>
-I think one of the most beautiful things about you is how strong you are.
-                </p>
-
-                <p>
-You handle so much, keep going through so many things, and somehow still manage to be kind, caring and completely yourself.
-                </p>
-
-                <p>
-There will always be days when life feels heavier than usual.
-
-Days when things don't go according to plan.
-
-Days when everything seems a little too much.
-                </p>
-
-                <p>
-But I hope you never forget just how competent you are.
-
-You have overcome difficult things before, and you will overcome the difficult things that are still waiting ahead.
-                </p>
-
-                <p>
-You don't have to have everything figured out.
-
-You don't have to be strong every second.
-
-You just have to keep going at your own pace.
-                </p>
-
-                <p>
-And on the days when you forget how wonderful you are...
-
-I hope this little letter reminds you.
-                </p>
-
-                <p class="finalThought">
-You are stronger than you think,<br>
-brighter than you realise,<br>
-and so much more capable than you give yourself credit for. 🌙
-                </p>
-
-                <p class="signature">
-Always believe in yourself.<br>
-Your Bui ❤️
-                </p>
-
-            </div>
-
-
-            <button id="continueBtn">
-                A Little Reminder ✨
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- FINAL PAGE -->
-
-    <section id="finalPage" class="page hidden">
-
-        <div class="finalCard">
-
-            <div class="bigMoon">
-                🌙
-            </div>
-
-            <p class="label">
-                JUST IN CASE YOU FORGOT
-            </p>
-
-            <h2>
-                You can do hard things.
-            </h2>
-
-            <p class="finalText">
-                Whatever life puts in front of you,
-                I hope you face it knowing that you are
-                capable, resilient and incredibly strong.
-            </p>
-
-            <p class="scriptText">
-                Keep going, Mou. ✨
-            </p>
-
-            <div class="starsBottom">
-                ✦ &nbsp; ✧ &nbsp; ✦ &nbsp; ✧ &nbsp; ✦
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
