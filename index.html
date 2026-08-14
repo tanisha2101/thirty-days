@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,149 +10,197 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<!-- WEATHER EFFECTS -->
-<div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
-<div class="cloud cloud3"></div>
+<div id="stars"></div>
+<div id="clockParticles"></div>
 
-<div id="rain"></div>
-<div id="sparkles"></div>
+<!-- ================= HERO ================= -->
 
-<!-- HERO -->
-<section class="hero" id="hero">
+<section class="hero">
 
-    <div class="weatherIcon">☁️</div>
-
-    <h3>A Little Weather Report For You ☁️</h3>
+    <div class="smallTitle">
+        A Little Reminder About Time ⏳
+    </div>
 
     <h1>
-        Twenty-Four Sunsets,<br>
+        Twenty-Two Sunsets,<br>
         Until Your Birthday
     </h1>
 
     <p class="quote">
-        Some days arrive with sunshine.
-        Some arrive with clouds.
-        But somehow, the sky always finds its way back to blue.
+        Some things cannot be rushed.<br>
+        They become beautiful because we give them time.
     </p>
 
     <div id="countdown"></div>
 
     <button id="startBtn">
-        ☔ Open Today's Letter
+        ⏳ Open Today's Time Capsule
     </button>
 
 </section>
 
 
-<!-- LETTER -->
-<section class="hidden" id="daySection">
+<!-- ================= MAIN PAGE ================= -->
+
+<section id="daySection" class="hidden">
 
     <div class="letterCard">
 
-        <div class="smallDate">
-            AUGUST 13 • DAY 24
-        </div>
-
-        <div class="weatherStamp">
-            🌦️
+        <div class="dayNumber">
+            Day 22
         </div>
 
         <h2>
-            For The Girl Who Makes<br>
-            Even Cloudy Days Beautiful
+            Time Has A Funny Way Of Making Things Beautiful
         </h2>
+
+        <div class="clockIcon">
+            🕰️
+        </div>
 
         <div class="letter">
 
-            <p>
 Dear Mou, ❤️
 
-I think life is a little like the weather.
+I think time is one of the strangest things in life.
 
-There are days when everything feels bright and easy, and then there are days when the sky suddenly becomes cloudy and you don't really know when the rain will stop.
+We spend so much of it wishing that certain moments would come faster, while wishing other moments would stay forever.
 
-But I've always believed that bad weather doesn't mean the sky has forgotten how to be blue.
+But maybe the most beautiful thing about time is what it does quietly.
 
-Some days are simply harder than others.
+With time, we grow.
 
-You have this incredible way of getting through things, even when they feel overwhelming. You keep going, you keep growing, and somehow you still manage to bring a little warmth wherever you go.
+We learn each other's little habits, our strange moods, the things that make us laugh, the things that make us quiet.
 
-Life isn't always going to be easy.
+With time, two people slowly stop being strangers and start becoming a part of each other's everyday lives.
 
-There will be stressful days, confusing days, and days when nothing seems to make sense.
+And I think that is what makes a relationship special.
 
-But someday, the clouds pass.
+Not one perfect moment.
 
-The rain stops.
+But hundreds of ordinary moments that slowly become something important.
 
-And the sun comes back.
+Time teaches us to understand each other a little better.
 
-I think that's what I love most about having you in my life.
+To value the little things.
 
-Even the ordinary days somehow feel a little better with you in them.
+To appreciate someone's presence.
 
-So wherever life takes us, through sunshine or storms, I just hope there are still plenty of beautiful skies waiting for us ahead.
+And sometimes, time gives us something even more precious...
+
+The chance to become better versions of ourselves.
+
+So today, I don't want to wish for anything to happen quickly.
+
+I think some things are worth letting time take care of.
+
+Because the best things in life aren't always the things we find immediately.
+
+Sometimes, they're the things we grow into.
+
+And maybe that's the most beautiful thing about us.
+
+There is still so much time ahead of us.
+
+So many ordinary mornings.
+
+So many silly conversations.
+
+So many memories we haven't made yet.
+
+And somehow, that thought makes me smile.
 
 Until tomorrow...
 
 Love,
 
 Your Bui ❤️
-            </p>
 
         </div>
 
-        <button id="continueBtn">
-            Let The Clouds Pass ☁️
-        </button>
 
-    </div>
+        <!-- ================= TIME CAPSULE ================= -->
 
-</section>
+        <div class="divider"></div>
 
+        <h3>
+            A Little Time Capsule ⏳
+        </h3>
 
-<!-- QUESTION -->
-<section class="hidden" id="questionSection">
-
-    <div class="questionCard">
-
-        <div class="sunset">🌤️</div>
-
-        <h2>
-            One Little Question...
-        </h2>
-
-        <p class="questionText">
-            If we could disappear somewhere quiet,
-            wait for the rain to stop,
-            and watch the sunset together...
-
-            <br><br>
-
-            Would you come with me? 🌅
+        <p class="capsuleIntro">
+            Three moments. Three little reminders.<br>
+            Open them one at a time.
         </p>
 
-        <div class="buttons">
 
-            <button id="yesBtn">
-                Yes, I would ❤️
+        <div class="hourglass">
+            <div class="glassTop"></div>
+            <div class="glassBottom"></div>
+            <div class="sand"></div>
+        </div>
+
+
+        <div class="capsuleButtons">
+
+            <button class="capsuleBtn" data-type="then">
+                🕰️ THEN
             </button>
 
-            <button id="noBtn">
-                Maybe not 🙈
+            <button class="capsuleBtn" data-type="now">
+                🌙 NOW
+            </button>
+
+            <button class="capsuleBtn" data-type="always">
+                ✨ ALWAYS
             </button>
 
         </div>
 
-        <p id="response"></p>
+
+        <div id="capsuleMessage"></div>
+
+        <!-- ================= QUESTION ================= -->
+
+        <div class="questionSection">
+
+            <div class="divider"></div>
+
+            <h3>
+                Today's Question
+            </h3>
+
+            <p class="question">
+                If you could keep one moment of our lives forever...
+
+                <br><br>
+
+                would you choose a moment from the past,
+                a moment we have now,
+                or one we haven't lived yet? ⏳❤️
+            </p>
+
+            <div class="buttons">
+
+                <button id="yesBtn">
+                    The Future ❤️
+                </button>
+
+                <button id="noBtn">
+                    The Past 🌙
+                </button>
+
+            </div>
+
+            <p id="response"></p>
+
+        </div>
 
     </div>
 
@@ -161,4 +210,5 @@ Your Bui ❤️
 <script src="script.js"></script>
 
 </body>
+
 </html>
