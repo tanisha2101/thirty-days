@@ -5,519 +5,564 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
 
     background:
-        linear-gradient(
-            180deg,
-            #9db7d8 0%,
-            #c5d4e5 38%,
-            #f0d4c5 72%,
-            #f7c8a9 100%
-        );
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.55), transparent 25%),
+        radial-gradient(circle at 85% 80%, rgba(242,150,100,.18), transparent 30%),
+        linear-gradient(135deg, #f7efd8, #e8f0e6);
 
-    color: #3d4350;
-    min-height: 100vh;
+    color: #254f52;
     overflow-x: hidden;
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* ================= HERO ================= */
 
 .hero {
+
     min-height: 100vh;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
 
-    padding: 35px;
+    padding: 30px;
 
-    position: relative;
-    overflow: hidden;
 }
 
-.weatherIcon {
-    font-size: 55px;
+
+.smallTitle {
+
+    font-family: 'Dancing Script', cursive;
+
+    font-size: 20px;
+
+    color: #014e16;
+
     margin-bottom: 10px;
 
-    animation: floatCloud 4s ease-in-out infinite;
-}
-
-@keyframes floatCloud {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
 }
 
 
-h1 {
-    font-family: 'Playfair Display', serif;
-
-    font-size: clamp(42px, 7vw, 70px);
-
+.hero h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 62px;
     line-height: 1.15;
 
     margin: 20px 0;
 
-    color: #4A3F5C;
+    color: #254f52;
 
-    text-shadow:
-        0 4px 20px rgba(60, 65, 80, .25);
-}
-
-
-h2 {
-    font-family: 'Playfair Display', serif;
-
-    color: #53677d;
-
-    line-height: 1.35;
-
-    margin-bottom: 25px;
-}
-
-
-h3 {
-    font-family: 'Dancing Script', cursive;
-
-    font-size: 34px;
-
-    color: #f7f8fa;
+    text-shadow: 3px 4px 0 rgba(215, 166, 92, 0.18);
 }
 
 
 .quote {
     max-width: 650px;
 
-    font-size: 19px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 21px;
+    line-height: 1.8;
 
-    line-height: 1.9;
+    color: #496968;
 
-    color: #52627A;
-
-    margin: 20px auto 35px;
+    margin-bottom: 40px;
 }
 
 
 #countdown {
-    font-size: 22px;
-
+    font-family: 'Fredoka', sans-serif;
+    font-size: 27px;
     font-weight: 500;
 
-    color: #5a315fcd;
+    color: #254f52;
 
-    background: rgba(255,255,255,.18);
+    background: rgba(255,255,255,.65);
 
-    backdrop-filter: blur(10px);
+    border: 2px solid rgba(215,166,92,.35);
 
-    padding: 14px 28px;
+    padding: 18px 35px;
+    border-radius: 50px;
 
-    border-radius: 40px;
+    box-shadow: 0 12px 30px rgba(37,79,82,.10);
 
-    margin-bottom: 35px;
-
-    border: 1px solid rgba(255,255,255,.3);
+    margin-bottom: 40px;
 }
 
 
-/* =========================
-   BUTTONS
-========================= */
-
 button {
-    border: none;
 
-    border-radius: 50px;
+    border: none;
 
     cursor: pointer;
 
+    border-radius: 50px;
+
     font-family: 'Poppins', sans-serif;
 
-    transition: .3s;
+    transition: .3s ease;
+
 }
 
 
 #startBtn {
+    background: #254f52;
+    color: #fff8e8;
 
-    padding: 17px 38px;
-
-    font-size: 18px;
-
+    font-family: 'Fredoka', sans-serif;
+    font-size: 20px;
     font-weight: 500;
 
-    color: white;
+    padding: 18px 40px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #657fa4,
-            #a8758a
-        );
+    border: 3px solid #d7a65c;
+    border-radius: 50px;
 
     box-shadow:
-        0 12px 30px rgba(60,70,90,.25);
-}
+        0 10px 25px rgba(37,79,82,.22),
+        0 0 0 5px rgba(215,166,92,.10);
 
+    transition: .3s;
+}
 
 #startBtn:hover {
     transform: translateY(-4px) scale(1.03);
 
+    background: #d66a4c;
+
     box-shadow:
-        0 18px 35px rgba(60,70,90,.3);
+        0 15px 35px rgba(214,106,76,.25);
 }
 
 
-/* =========================
-   CLOUDS
-========================= */
 
-.cloud {
-    position: fixed;
-
-    width: 180px;
-    height: 60px;
-
-    background: rgba(255,255,255,.18);
-
-    border-radius: 100px;
-
-    filter: blur(2px);
-
-    pointer-events: none;
-}
-
-.cloud::before,
-.cloud::after {
-    content: "";
-
-    position: absolute;
-
-    background: inherit;
-
-    border-radius: 50%;
-}
-
-.cloud::before {
-    width: 80px;
-    height: 80px;
-
-    left: 30px;
-    top: -35px;
-}
-
-.cloud::after {
-    width: 100px;
-    height: 100px;
-
-    right: 20px;
-    top: -50px;
-}
-
-
-.cloud1 {
-    top: 15%;
-    left: -80px;
-
-    animation: cloudMove 35s linear infinite;
-}
-
-.cloud2 {
-    top: 32%;
-    left: -250px;
-
-    transform: scale(.7);
-
-    animation: cloudMove 45s linear infinite;
-}
-
-.cloud3 {
-    top: 60%;
-    left: -150px;
-
-    transform: scale(.5);
-
-    animation: cloudMove 55s linear infinite;
-}
-
-
-@keyframes cloudMove {
-
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(120vw);
-    }
-}
-
-
-/* =========================
-   RAIN
-========================= */
-
-#rain {
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-    z-index: 1;
-}
-
-.drop {
-    position: absolute;
-
-    width: 1px;
-    height: 45px;
-
-    background: rgba(255,255,255,.35);
-
-    animation: rainfall linear forwards;
-}
-
-
-@keyframes rainfall {
-
-    from {
-        transform: translateY(-60px);
-    }
-
-    to {
-        transform: translateY(110vh);
-    }
-}
-
-
-/* =========================
-   SPARKLES
-========================= */
-
-#sparkles {
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 5;
-}
-
-.sparkle {
-    position: absolute;
-
-    color: rgba(255,255,255,.7);
-
-    animation: sparkleFloat 4s linear forwards;
-}
-
-
-@keyframes sparkleFloat {
-
-    0% {
-        opacity: 0;
-        transform: translateY(20px) scale(.4);
-    }
-
-    30% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-120px) scale(1);
-    }
-}
-
-
-/* =========================
-   HIDDEN
-========================= */
+/* ================= MAIN ================= */
 
 .hidden {
+
     display: none;
+
 }
 
-
-/* =========================
-   LETTER
-========================= */
 
 .letterCard {
 
-    max-width: 760px;
+    max-width: 780px;
 
-    margin: 70px auto;
+    margin: 60px auto;
 
-    padding: 55px;
+    padding: 50px;
 
-    background:
-        rgba(255,250,244,.94);
+    background: rgba(255,250,247,.92);
 
-    border-radius: 28px;
+    border-radius: 30px;
 
     box-shadow:
-        0 25px 70px rgba(70,70,80,.2);
+        0 25px 70px rgba(70,60,80,.18);
 
     text-align: center;
 
-    position: relative;
+    animation: appear 1s ease;
 
-    animation: appear .9s ease;
 }
 
 
 @keyframes appear {
 
     from {
+
         opacity: 0;
+
         transform: translateY(40px);
+
     }
 
     to {
+
         opacity: 1;
+
         transform: translateY(0);
+
     }
+
 }
 
 
-.smallDate {
+.dayNumber {
 
-    font-size: 13px;
+    font-family: 'Playfair Display', serif;
 
-    letter-spacing: 3px;
+    font-size: 20px;
 
-    color: #9a8a83;
+    color: #80677e;
 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+
 }
 
 
-.weatherStamp {
+.letterCard h2 {
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 38px;
+
+    color: #493d59;
+
+    line-height: 1.3;
+
+}
+
+
+.clockIcon {
 
     font-size: 45px;
 
-    margin-bottom: 10px;
+    margin: 20px 0;
+
 }
 
 
 .letter {
 
-    text-align: left;
-
     max-width: 620px;
 
     margin: auto;
-}
 
+    text-align: left;
 
-.letter p {
+    white-space: pre-line;
 
     font-size: 18px;
 
     line-height: 2.1;
 
-    white-space: pre-line;
+    color: #514b56;
 
-    color: #4b4547;
 }
 
 
-#continueBtn {
+/* ================= DIVIDER ================= */
 
-    margin-top: 40px;
+.divider {
 
-    padding: 15px 34px;
+    width: 120px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #7188a5,
-            #b67c8f
-        );
+    height: 1px;
+
+    background: #c9a7b8;
+
+    margin: 50px auto 35px;
+
+}
+
+
+/* ================= CAPSULE ================= */
+
+.letterCard h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+
+    color: #d66a4c;
+
+    letter-spacing: .5px;
+}
+
+
+.capsuleIntro {
+
+    color: #777080;
+
+    line-height: 1.8;
+
+    margin: 10px 0 25px;
+
+}
+
+
+/* ================= HOURGLASS ================= */
+
+.hourglass {
+
+    position: relative;
+
+    width: 90px;
+
+    height: 120px;
+
+    margin: 20px auto 30px;
+
+}
+
+
+.glassTop,
+.glassBottom {
+
+    position: absolute;
+
+    width: 65px;
+
+    height: 45px;
+
+    left: 12px;
+
+    border: 3px solid #92778d;
+
+}
+
+
+.glassTop {
+
+    top: 0;
+
+    border-radius: 8px 8px 30px 30px;
+
+    border-bottom: none;
+
+}
+
+
+.glassBottom {
+
+    bottom: 0;
+
+    border-radius: 30px 30px 8px 8px;
+
+    border-top: none;
+
+}
+
+
+.hourglass::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 3px;
+
+    height: 55px;
+
+    background: #92778d;
+
+    left: 44px;
+
+    top: 33px;
+
+}
+
+
+.sand {
+
+    position: absolute;
+
+    width: 30px;
+
+    height: 30px;
+
+    background: #d7b46a;
+
+    border-radius: 50%;
+
+    left: 29px;
+
+    top: 75px;
+
+    animation: sandFall 3s infinite linear;
+
+}
+
+
+@keyframes sandFall {
+
+    0% {
+
+        transform: translateY(-35px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* ================= CAPSULE BUTTONS ================= */
+
+.capsuleButtons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.capsuleBtn {
+
+    padding: 13px 24px;
+
+    background: #eee5ed;
+
+    color: #5d5065;
+
+    font-size: 16px;
+
+}
+
+
+.capsuleBtn:hover {
+
+    transform: translateY(-4px);
+
+    background: #ded0dc;
+
+}
+
+
+.capsuleBtn.opened {
+
+    background: #80677e;
 
     color: white;
 
+}
+
+
+/* ================= MESSAGE ================= */
+
+#capsuleMessage {
+
+    min-height: 80px;
+
+    max-width: 560px;
+
+    margin: 25px auto;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: rgba(226,216,229,.5);
+
+    color: #55495d;
+
     font-size: 17px;
 
-    box-shadow:
-        0 10px 25px rgba(100,100,120,.2);
+    line-height: 1.8;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition: .5s ease;
+
 }
 
 
-#continueBtn:hover {
-    transform: translateY(-3px);
+#capsuleMessage.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
 }
 
 
-/* =========================
-   QUESTION
-========================= */
+/* ================= FINAL ================= */
 
-#questionSection {
+#finalMessage {
 
-    padding: 40px 20px 100px;
+    display: none;
 
-    animation: appear .8s ease;
+    margin: 30px auto;
+
+    padding: 30px;
+
+    border-radius: 22px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(226,215,235,.7),
+        rgba(245,220,219,.7)
+    );
+
+    animation: appear 1s ease;
+
 }
 
 
-.questionCard {
+.tinyClock {
 
-    max-width: 650px;
+    font-size: 35px;
 
-    margin: auto;
+    margin-bottom: 10px;
 
-    padding: 55px 35px;
-
-    background:
-        rgba(255,250,245,.95);
-
-    border-radius: 28px;
-
-    text-align: center;
-
-    box-shadow:
-        0 25px 60px rgba(70,70,80,.2);
 }
 
 
-.sunset {
-    font-size: 55px;
+#finalMessage h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
 
-    margin-bottom: 15px;
+    color: #d66a4c;
+
+    letter-spacing: .5px;
 }
 
 
-.questionText {
+#finalMessage p {
+
+    color: #62596b;
+
+    line-height: 1.8;
+
+    margin-top: 10px;
+
+}
+
+
+/* ================= QUESTION ================= */
+
+.questionSection {
+
+    margin-top: 20px;
+
+}
+
+
+.question {
+
+    max-width: 600px;
+
+    margin: 30px auto;
 
     font-size: 20px;
 
-    line-height: 2;
+    line-height: 1.9;
 
-    color: #51494b;
+    color: #514958;
 
-    margin: 30px auto;
 }
 
-
-/* =========================
-   YES / NO
-========================= */
 
 .buttons {
 
@@ -531,98 +576,151 @@ button {
 
     min-height: 70px;
 
-    margin-top: 30px;
 }
 
 
 #yesBtn {
 
-    background:
-        linear-gradient(
-            135deg,
-            #7089a9,
-            #b8788e
-        );
+    padding: 15px 28px;
+
+    background: linear-gradient(
+        135deg,
+        #7865a8,
+        #b87698
+    );
 
     color: white;
 
-    padding: 15px 30px;
-
-    font-size: 17px;
-
-    font-weight: 500;
-}
-
-
-#yesBtn:hover {
-    transform: scale(1.06);
 }
 
 
 #noBtn {
 
-    background: #e6e3e2;
+    padding: 15px 28px;
 
-    color: #666;
+    background: #e5dfe5;
 
-    padding: 15px 30px;
+    color: #5b5360;
 
-    font-size: 17px;
+    position: relative;
 
-    position: absolute;
 }
 
 
 #response {
 
-    margin-top: 35px;
+    margin-top: 30px;
 
     font-family: 'Dancing Script', cursive;
 
-    font-size: 26px;
+    font-size: 28px;
 
-    color: #71839b;
+    color: #76536e;
 
-    line-height: 1.7;
 }
 
 
-/* MOBILE */
+/* ================= PARTICLES ================= */
+
+#stars {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+}
+
+
+.star {
+
+    position: absolute;
+
+    color: rgba(255,255,255,.8);
+
+    animation: float 5s linear forwards;
+
+}
+
+
+@keyframes float {
+
+    from {
+
+        transform: translateY(0);
+
+        opacity: 0;
+
+    }
+
+    20% {
+
+        opacity: 1;
+
+    }
+
+    to {
+
+        transform: translateY(-120px);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
 
-    .hero {
-        padding: 25px 18px;
+    .hero h1 {
+
+        font-size: 40px;
+
     }
 
-    h3 {
+    .smallTitle {
+
         font-size: 28px;
-    }
 
-    h1 {
-        font-size: 42px;
-    }
-
-    .quote {
-        font-size: 16px;
     }
 
     #countdown {
-        font-size: 16px;
+
+        font-size: 17px;
+
+        padding: 15px 20px;
+
     }
 
     .letterCard {
-        margin: 35px 15px;
-        padding: 35px 22px;
+
+        margin: 25px 12px;
+
+        padding: 30px 20px;
+
     }
 
-    .letter p {
+    .letterCard h2 {
+
+        font-size: 30px;
+
+    }
+
+    .letter {
+
         font-size: 16px;
+
         line-height: 2;
+
     }
 
-    .questionCard {
-        padding: 40px 20px;
+    .question {
+
+        font-size: 17px;
+
     }
 
 }
