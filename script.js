@@ -15,6 +15,14 @@ function updateCountdown() {
 
     const distance = targetDate - now;
 
+    if (distance <= 0) {
+
+        countdown.innerHTML =
+            "It's finally your birthday. ❤️";
+
+        return;
+    }
+
     const days =
         Math.floor(distance / (1000 * 60 * 60 * 24));
 
@@ -40,36 +48,94 @@ function updateCountdown() {
         `${days} days · ${hours} hours · ${minutes} minutes · ${seconds} seconds`;
 }
 
+
 updateCountdown();
 
 setInterval(updateCountdown, 1000);
 
 
 /* =========================
-   OPEN TIME CAPSULE
+   OPEN STORY
 ========================= */
 
-const startBtn =
-    document.getElementById("startBtn");
+const openBtn =
+    document.getElementById("openBtn");
 
 const hero =
-    document.querySelector(".hero");
+    document.getElementById("hero");
 
-const daySection =
-    document.getElementById("daySection");
+const letterSection =
+    document.getElementById("letterSection");
 
 
-startBtn.onclick = () => {
+openBtn.addEventListener("click", () => {
+
+    hero.style.transition =
+        "opacity .8s ease, transform .8s ease";
 
     hero.style.opacity = "0";
 
-    hero.style.transition = ".7s";
+    hero.style.transform =
+        "scale(1.04)";
 
     setTimeout(() => {
 
         hero.style.display = "none";
 
-        daySection.classList.remove("hidden");
+        letterSection.classList.remove("hidden");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
+
+    }, 800);
+
+});
+
+
+/* =========================
+   TURN THE PAGE
+========================= */
+
+const continueBtn =
+    document.getElementById("continueBtn");
+
+const questionSection =
+    document.getElementById("questionSection");
+
+
+continueBtn.addEventListener("click", () => {
+
+    letterSection.style.transition =
+        "opacity .7s ease, transform .7s ease";
+
+    letterSection.style.opacity = "0";
+
+    letterSection.style.transform =
+        "translateY(-40px)";
+
+    setTimeout(() => {
+
+        letterSection.style.display = "none";
+
+        questionSection.classList.remove("hidden");
+
+        questionSection.style.opacity = "0";
+
+        questionSection.style.transform =
+            "translateY(40px)";
+
+        requestAnimationFrame(() => {
+
+            questionSection.style.transition =
+                "opacity .8s ease, transform .8s ease";
+
+            questionSection.style.opacity = "1";
+
+            questionSection.style.transform =
+                "translateY(0)";
+        });
 
         window.scrollTo({
             top: 0,
@@ -78,160 +144,48 @@ startBtn.onclick = () => {
 
     }, 700);
 
-};
-
-
-/* =========================
-   TIME CAPSULE
-========================= */
-
-const messages = {
-
-    then: `
-    There was a time when we didn't know each other this well.
-
-    Two people simply existing in the same world,
-    unaware of all the little things they would eventually learn about one another.
-
-    Funny how time can turn strangers into someone who feels familiar.
-    `,
-
-    now: `
-    Right now is made of all the little things time has taught us.
-
-    The habits we know.
-    The jokes we understand.
-    The silences we recognize.
-
-    Somehow, all those little moments became something much bigger than we expected.
-    `,
-
-    always: `
-    And then there is everything time hasn't shown us yet.
-
-    More mornings.
-    More conversations.
-    More growing.
-    More learning.
-
-    Some of the most beautiful chapters haven't happened yet.
-    And perhaps that's the best thing about time.
-    `
-
-};
-
-
-const capsuleButtons =
-    document.querySelectorAll(".capsuleBtn");
-
-const capsuleMessage =
-    document.getElementById("capsuleMessage");
-
-const finalMessage =
-    document.getElementById("finalMessage");
-
-let opened = new Set();
-
-
-capsuleButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const type =
-            button.dataset.type;
-
-        capsuleMessage.innerHTML =
-            messages[type];
-
-        capsuleMessage.classList.remove("show");
-
-        setTimeout(() => {
-
-            capsuleMessage.classList.add("show");
-
-        }, 50);
-
-        button.classList.add("opened");
-
-        opened.add(type);
-
-        if (opened.size === 3) {
-
-            setTimeout(() => {
-
-                finalMessage.style.display = "block";
-
-                finalMessage.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }, 700);
-
-        }
-
-    });
-
 });
 
 
 /* =========================
-   MAGIC CLOCK PARTICLES
-========================= */
-
-const stars =
-    document.getElementById("stars");
-
-
-function createStar() {
-
-    const star =
-        document.createElement("div");
-
-    star.className = "star";
-
-    star.innerHTML =
-        ["✦", "✧", "·", "✨"][Math.floor(Math.random() * 4)];
-
-    star.style.left =
-        Math.random() * 100 + "vw";
-
-    star.style.top =
-        (60 + Math.random() * 40) + "vh";
-
-    star.style.fontSize =
-        (10 + Math.random() * 12) + "px";
-
-    star.style.animationDuration =
-        (3 + Math.random() * 3) + "s";
-
-    stars.appendChild(star);
-
-    setTimeout(() => {
-        star.remove();
-    }, 6000);
-
-}
-
-
-setInterval(createStar, 700);
-
-
-/* =========================
-   YES BUTTON
+   QUESTION BUTTONS
 ========================= */
 
 const yesBtn =
     document.getElementById("yesBtn");
 
-const response =
-    document.getElementById("response");
+const foreverBtn =
+    document.getElementById("foreverBtn");
+
+const answer =
+    document.getElementById("answer");
 
 
-yesBtn.onclick = () => {
+yesBtn.addEventListener("click", () => {
 
-    response.innerHTML =
-        "Then let's give the future all the time it deserves. ⏳❤️";
+    answer.innerHTML =
+        "Then I'd keep that evening forever. ❤️";
+
+    createHearts();
+
+});
+
+
+foreverBtn.addEventListener("click", () => {
+
+    answer.innerHTML =
+        "Then perhaps some stories really are meant to last. ✨";
+
+    createHearts();
+
+});
+
+
+/* =========================
+   HEART EFFECT
+========================= */
+
+function createHearts() {
 
     for (let i = 0; i < 25; i++) {
 
@@ -241,32 +195,33 @@ yesBtn.onclick = () => {
                 document.createElement("div");
 
             heart.innerHTML =
-                ["❤️", "✨", "⏳", "🌙"][
-                    Math.floor(Math.random() * 4)
-                ];
+                ["❤️", "✦", "🕷️", "✨"]
+                [Math.floor(Math.random() * 4)];
 
             heart.style.position = "fixed";
 
             heart.style.left =
                 Math.random() * 100 + "vw";
 
-            heart.style.top =
-                "100vh";
+            heart.style.top = "100vh";
 
             heart.style.fontSize =
-                (18 + Math.random() * 15) + "px";
+                (16 + Math.random() * 18) + "px";
 
             heart.style.pointerEvents =
                 "none";
 
+            heart.style.zIndex = "999";
+
             heart.style.transition =
-                "3s ease";
+                "transform 3s ease, opacity 3s ease";
 
             document.body.appendChild(heart);
 
             requestAnimationFrame(() => {
 
-                heart.style.top = "-10vh";
+                heart.style.transform =
+                    `translateY(-110vh) rotate(${Math.random() * 180}deg)`;
 
                 heart.style.opacity = "0";
 
@@ -276,30 +231,87 @@ yesBtn.onclick = () => {
                 heart.remove();
             }, 3000);
 
-        }, i * 70);
-
+        }, i * 80);
     }
-
-};
+}
 
 
 /* =========================
-   PLAYFUL NO BUTTON
+   MUSIC
 ========================= */
 
-const noBtn =
-    document.getElementById("noBtn");
+const musicBtn =
+    document.getElementById("musicBtn");
+
+const song =
+    document.getElementById("song");
 
 
-noBtn.addEventListener("mouseover", () => {
+let playing = false;
 
-    const x =
-        Math.random() * 180 - 90;
 
-    const y =
-        Math.random() * 100 - 50;
+musicBtn.addEventListener("click", () => {
 
-    noBtn.style.transform =
-        `translate(${x}px, ${y}px)`;
+    if (!playing) {
+
+        song.play()
+            .then(() => {
+
+                musicBtn.innerHTML =
+                    "⏸ Pause Our Song";
+
+                playing = true;
+
+            })
+            .catch(() => {
+
+                musicBtn.innerHTML =
+                    "🎵 Add the song file first";
+
+            });
+
+    } else {
+
+        song.pause();
+
+        musicBtn.innerHTML =
+            "🎵 Play Our Song";
+
+        playing = false;
+    }
 
 });
+
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+const particleContainer =
+    document.getElementById("particles");
+
+
+function createParticle() {
+
+    const particle =
+        document.createElement("div");
+
+    particle.className = "particle";
+
+    particle.style.left =
+        Math.random() * 100 + "vw";
+
+    particle.style.top =
+        (70 + Math.random() * 30) + "vh";
+
+    particle.style.animationDuration =
+        (3 + Math.random() * 3) + "s";
+
+    particleContainer.appendChild(particle);
+
+    setTimeout(() => {
+        particle.remove();
+    }, 6000);
+}
+
+setInterval(createParticle, 700);
