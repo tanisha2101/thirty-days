@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,196 +9,191 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<!-- Spider web decoration -->
+<div class="web web-one"></div>
+<div class="web web-two"></div>
 
-<div id="stars"></div>
-<div id="clockParticles"></div>
+<!-- Floating particles -->
+<div id="particles"></div>
 
 <!-- ================= HERO ================= -->
 
-<section class="hero">
+<section class="hero" id="hero">
 
-    <div class="smallTitle">
-        A Little Reminder About Time ⏳
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            A Little Story About Us 🕷️
+        </p>
+
+        <h1>
+            Some Things<br>
+            Are Worth Forever.
+        </h1>
+
+        <div class="red-line"></div>
+
+        <p class="hero-text">
+            In a city full of people, some stories somehow find
+            their way to the same two hearts.
+        </p>
+
+        <div id="countdown">
+            Loading...
+        </div>
+        <br>
+        <button id="openBtn" class="main-btn">
+            🕷️ Enter Our Little Story
+        </button>
+
     </div>
-
-    <h1>
-        Twenty-Two Sunsets,<br>
-        Until Your Birthday
-    </h1>
-
-    <p class="quote">
-        Some things cannot be rushed.<br>
-        They become beautiful because we give them time.
-    </p>
-
-    <div id="countdown"></div>
-
-    <button id="startBtn">
-        ⏳ Open Today's Time Capsule
-    </button>
 
 </section>
 
 
-<!-- ================= MAIN PAGE ================= -->
+<!-- ================= LETTER ================= -->
 
-<section id="daySection" class="hidden">
+<section class="letter-section hidden" id="letterSection">
 
-    <div class="letterCard">
+    <div class="city-glow"></div>
 
-        <div class="dayNumber">
-            Day 22
-        </div>
+    <div class="letter-wrapper">
 
-        <h2>
-            Time Has A Funny Way Of Making Things Beautiful
-        </h2>
+        <div class="letter-paper">
 
-        <div class="clockIcon">
-            🕰️
-        </div>
+            <div class="letter-decoration">✦</div>
 
-        <div class="letter">
-
-Dear Mou, ❤️
-
-I think time is one of the strangest things in life.
-
-We spend so much of it wishing that certain moments would come faster, while wishing other moments would stay forever.
-
-But maybe the most beautiful thing about time is what it does quietly.
-
-With time, we grow.
-
-We learn each other's little habits, our strange moods, the things that make us laugh, the things that make us quiet.
-
-With time, two people slowly stop being strangers and start becoming a part of each other's everyday lives.
-
-And I think that is what makes a relationship special.
-
-Not one perfect moment.
-
-But hundreds of ordinary moments that slowly become something important.
-
-Time teaches us to understand each other a little better.
-
-To value the little things.
-
-To appreciate someone's presence.
-
-And sometimes, time gives us something even more precious...
-
-The chance to become better versions of ourselves.
-
-So today, I don't want to wish for anything to happen quickly.
-
-I think some things are worth letting time take care of.
-
-Because the best things in life aren't always the things we find immediately.
-
-Sometimes, they're the things we grow into.
-
-And maybe that's the most beautiful thing about us.
-
-There is still so much time ahead of us.
-
-So many ordinary mornings.
-
-So many silly conversations.
-
-So many memories we haven't made yet.
-
-And somehow, that thought makes me smile.
-
-Until tomorrow...
-
-Love,
-
-Your Bui ❤️
-
-        </div>
-
-
-        <!-- ================= TIME CAPSULE ================= -->
-
-        <div class="divider"></div>
-
-        <h3>
-            A Little Time Capsule ⏳
-        </h3>
-
-        <p class="capsuleIntro">
-            Three moments. Three little reminders.<br>
-            Open them one at a time.
-        </p>
-
-
-        <div class="hourglass">
-            <div class="glassTop"></div>
-            <div class="glassBottom"></div>
-            <div class="sand"></div>
-        </div>
-
-
-        <div class="capsuleButtons">
-
-            <button class="capsuleBtn" data-type="then">
-                🕰️ THEN
-            </button>
-
-            <button class="capsuleBtn" data-type="now">
-                🌙 NOW
-            </button>
-
-            <button class="capsuleBtn" data-type="always">
-                ✨ ALWAYS
-            </button>
-
-        </div>
-
-
-        <div id="capsuleMessage"></div>
-
-        <!-- ================= QUESTION ================= -->
-
-        <div class="questionSection">
-
-            <div class="divider"></div>
-
-            <h3>
-                Today's Question
-            </h3>
-
-            <p class="question">
-                If you could keep one moment of our lives forever...
-
-                <br><br>
-
-                would you choose a moment from the past,
-                a moment we have now,
-                or one we haven't lived yet? ⏳❤️
+            <p class="letter-date">
+                A little note, written somewhere between
+                yesterday and forever...
             </p>
 
-            <div class="buttons">
+            <h2>
+                My Dearest Nushi,
+            </h2>
 
-                <button id="yesBtn">
-                    The Future ❤️
-                </button>
+            <p>
+                Some stories are written in books.
 
-                <button id="noBtn">
-                    The Past 🌙
-                </button>
+                Some are written across cities, through ordinary
+                afternoons, unexpected conversations and little
+                moments that somehow become the ones we remember.
 
+                And then there are stories that simply happen.
+
+                They begin quietly.
+
+                You meet someone, you spend a little time with them,
+                and somewhere along the way, without even noticing,
+                they become a part of the way you see the world.
+
+                I think that's what makes time so beautiful.
+
+                It doesn't just give us memories.
+
+                It gives us chances to understand each other,
+                to grow, to change, to laugh at the smallest things,
+                and to discover new reasons to care.
+
+                Maybe that's what forever really means.
+
+                Not knowing exactly what every tomorrow will look like.
+
+                Just knowing that some moments are worth holding onto,
+                some people are worth choosing,
+                and some stories are worth reading again and again.
+
+                And if I could choose one story to keep turning the pages of...
+
+                I think I'd choose ours.
+
+                ❤️
+            </p>
+
+            <div class="signature">
+                Always,<br>
+                <span>Your Bui</span>
             </div>
 
-            <p id="response"></p>
+            <div class="letter-decoration bottom">
+                ✦
+            </div>
 
+        </div>
+
+        <button id="continueBtn" class="continue-btn">
+            Turn the Page ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUESTION ================= -->
+
+<section class="question-section hidden" id="questionSection">
+
+    <div class="question-card">
+
+        <p class="small-title">
+            ONE LITTLE QUESTION...
+        </p>
+
+        <h2>
+            If we could pause time<br>
+            for just one evening...
+        </h2>
+
+        <p class="question-text">
+            Would you spend it with me,
+            somewhere under the city lights,
+            with nowhere else to be?
+        </p>
+
+        <div class="answer-buttons">
+
+            <button id="yesBtn">
+                I would. ❤️
+            </button>
+
+            <button id="foreverBtn">
+                I'd choose it again. ✨
+            </button>
+
+        </div>
+
+        <p id="answer"></p>
+
+        <div class="song-box">
+
+            <p>
+                And maybe this song can play in the background
+                while you read this...
+            </p>
+
+            <button id="musicBtn">
+                🎵 Play Our Song
+            </button>
+
+            <audio id="song" loop>
+                <source src="i-like-me-better.mp3" type="audio/mpeg">
+            </audio>
+
+        </div>
+
+        <div class="final-line">
+            Some people become memories.<br>
+            Some become chapters.<br>
+            <strong>Some become the whole story.</strong>
         </div>
 
     </div>
@@ -210,5 +204,4 @@ Your Bui ❤️
 <script src="script.js"></script>
 
 </body>
-
 </html>
