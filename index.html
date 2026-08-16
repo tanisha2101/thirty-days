@@ -1,207 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Thirty Days, One Heart ❤️</title>
+    <title>Thirty Days, One Heart ❤️</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<!-- Spider web decoration -->
-<div class="web web-one"></div>
-<div class="web web-two"></div>
 
-<!-- Floating particles -->
-<div id="particles"></div>
+    <!-- STAR LAYER -->
+    <div id="stars"></div>
 
-<!-- ================= HERO ================= -->
+    <!-- HERO -->
+    <section class="hero" id="hero">
 
-<section class="hero" id="hero">
-
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-
-        <p class="eyebrow">
-            A Little Story About Us 🕷️
-        </p>
+        <div class="eyebrow">
+            A Little Note Beneath The Stars ✨
+        </div>
 
         <h1>
-            Some Things<br>
-            Are Worth Forever.
+            Twenty-One Sunsets,<br>
+            Until Your Birthday
         </h1>
 
-        <div class="red-line"></div>
-
-        <p class="hero-text">
-            In a city full of people, some stories somehow find
-            their way to the same two hearts.
+        <p class="intro">
+            Somewhere beneath this same sky,<br>
+            there is always something worth wishing for.
         </p>
 
         <div id="countdown">
-            Loading...
+            21 Days · 00 Hours · 00 Minutes · 00 Seconds
         </div>
-        <br>
-        <button id="openBtn" class="main-btn">
-            🕷️ Enter Our Little Story
+
+        <button id="startBtn">
+            🔭 Look Through The Telescope
         </button>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- ================= LETTER ================= -->
+    <!-- MAIN CONTENT -->
+    <main id="daySection" class="hidden">
 
-<section class="letter-section hidden" id="letterSection">
+        <!-- OBSERVATORY INTRO -->
+        <section class="observatory-card">
 
-    <div class="city-glow"></div>
-
-    <div class="letter-wrapper">
-
-        <div class="letter-paper">
-
-            <div class="letter-decoration">✦</div>
-
-            <p class="letter-date">
-                A little note, written somewhere between
-                yesterday and forever...
-            </p>
+            <div class="ornament">✦ ───────── ✦</div>
 
             <h2>
-                My Dearest Nushi,
+                The Observatory
             </h2>
 
             <p>
-                Some stories are written in books.
-
-                Some are written across cities, through ordinary
-                afternoons, unexpected conversations and little
-                moments that somehow become the ones we remember.
-
-                And then there are stories that simply happen.
-
-                They begin quietly.
-
-                You meet someone, you spend a little time with them,
-                and somewhere along the way, without even noticing,
-                they become a part of the way you see the world.
-
-                I think that's what makes time so beautiful.
-
-                It doesn't just give us memories.
-
-                It gives us chances to understand each other,
-                to grow, to change, to laugh at the smallest things,
-                and to discover new reasons to care.
-
-                Maybe that's what forever really means.
-
-                Not knowing exactly what every tomorrow will look like.
-
-                Just knowing that some moments are worth holding onto,
-                some people are worth choosing,
-                and some stories are worth reading again and again.
-
-                And if I could choose one story to keep turning the pages of...
-
-                I think I'd choose ours.
-
-                ❤️
+                Some things are too beautiful to be seen in a hurry.
+                You have to stop, look up, and let yourself notice them.
             </p>
 
-            <div class="signature">
-                Always,<br>
-                <span>Your Bui</span>
+            <button id="skyBtn">
+                ✨ Look At The Sky
+            </button>
+
+            <div id="skyMessage" class="sky-message">
+                <span>✦</span>
+                <p>
+                    And somehow, out of all the stars in the sky,
+                    I am still happiest about the one that exists in my world.
+                </p>
+                <span>✦</span>
             </div>
 
-            <div class="letter-decoration bottom">
-                ✦
+        </section>
+
+
+        <!-- LETTER -->
+        <section class="letter-section">
+
+            <button id="letterBtn">
+                💌 Open Today's Letter
+            </button>
+
+            <div id="letter" class="letter hidden">
+
+                <div class="letter-top">
+                    ✦ A Letter Beneath The Stars ✦
+                </div>
+
+                <p>
+                    My favourite things about life have never been the loudest ones.
+
+                    Sometimes it is simply a quiet evening, a beautiful sky,
+                    a little laughter, or having someone who makes ordinary
+                    moments feel special.
+
+                    And somehow, you became all of those beautiful parts
+                    of my life.
+
+                    If I could make one wish beneath all these stars,
+                    it would be for many more ordinary evenings,
+                    silly conversations, little adventures,
+                    and I wish all of them with you.
+
+                    Until then, I'll keep looking up at the sky
+                    and being grateful that somewhere in this enormous universe,
+                    our paths found each other.
+
+                    ❤️
+                </p>
+
+                <div class="signature">
+                    Always,
+                    <br>
+                    Bui
+                </div>
+
             </div>
 
-        </div>
-
-        <button id="continueBtn" class="continue-btn">
-            Turn the Page ✨
-        </button>
-
-    </div>
-
-</section>
+        </section>
 
 
-<!-- ================= QUESTION ================= -->
+        <!-- QUESTION -->
+        <section id="questionSection" class="question-section hidden">
 
-<section class="question-section hidden" id="questionSection">
+            <div class="question-card">
 
-    <div class="question-card">
+                <div class="question-star">
+                    ✦
+                </div>
 
-        <p class="small-title">
-            ONE LITTLE QUESTION...
-        </p>
+                <h2>
+                    One Last Question
+                </h2>
 
-        <h2>
-            If we could pause time<br>
-            for just one evening...
-        </h2>
+                <p class="questionText">
+                    If the universe gave us another thousand little moments together...
+                    <br><br>
+                    Would you choose them?
+                </p>
 
-        <p class="question-text">
-            Would you spend it with me,
-            somewhere under the city lights,
-            with nowhere else to be?
-        </p>
+                <div class="buttons">
 
-        <div class="answer-buttons">
+                    <button id="yesBtn">
+                        Yes ❤️
+                    </button>
 
-            <button id="yesBtn">
-                I would. ❤️
-            </button>
+                    <button id="noBtn">
+                        No
+                    </button>
 
-            <button id="foreverBtn">
-                I'd choose it again. ✨
-            </button>
+                </div>
 
-        </div>
+                <div id="response"></div>
 
-        <p id="answer"></p>
+            </div>
 
-        <div class="song-box">
+        </section>
 
-            <p>
-                And maybe this song can play in the background
-                while you read this...
-            </p>
-
-            <button id="musicBtn">
-                🎵 Play Our Song
-            </button>
-
-            <audio id="song" loop>
-                <source src="i-like-me-better.mp3" type="audio/mpeg">
-            </audio>
-
-        </div>
-
-        <div class="final-line">
-            Some people become memories.<br>
-            Some become chapters.<br>
-            <strong>Some become the whole story.</strong>
-        </div>
-
-    </div>
-
-</section>
+    </main>
 
 
-<script src="script.js"></script>
+    <!-- FLOATING HEARTS / STARS -->
+    <div id="effects"></div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
