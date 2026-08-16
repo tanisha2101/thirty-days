@@ -18,34 +18,36 @@ function updateCountdown() {
     if (distance <= 0) {
 
         countdown.innerHTML =
-            "It's finally your birthday. ❤️";
+            "It's Your Birthday ❤️";
 
         return;
     }
 
     const days =
-        Math.floor(distance / (1000 * 60 * 60 * 24));
+        Math.floor(
+            distance / (1000 * 60 * 60 * 24)
+        );
 
     const hours =
         Math.floor(
-            (distance % (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
+            (distance % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
         );
 
-    const minutes =
+    const mins =
         Math.floor(
-            (distance % (1000 * 60 * 60)) /
-            (1000 * 60)
+            (distance % (1000 * 60 * 60))
+            / (1000 * 60)
         );
 
-    const seconds =
+    const secs =
         Math.floor(
-            (distance % (1000 * 60)) /
-            1000
+            (distance % (1000 * 60))
+            / 1000
         );
 
     countdown.innerHTML =
-        `${days} days · ${hours} hours · ${minutes} minutes · ${seconds} seconds`;
+        `${days} Days · ${hours} Hours · ${mins} Minutes · ${secs} Seconds`;
 }
 
 
@@ -55,181 +57,218 @@ setInterval(updateCountdown, 1000);
 
 
 /* =========================
-   OPEN STORY
+   START / TELESCOPE
 ========================= */
 
-const openBtn =
-    document.getElementById("openBtn");
+const startBtn =
+    document.getElementById("startBtn");
 
 const hero =
     document.getElementById("hero");
 
-const letterSection =
-    document.getElementById("letterSection");
+const daySection =
+    document.getElementById("daySection");
 
 
-openBtn.addEventListener("click", () => {
+startBtn.onclick = () => {
 
-    hero.style.transition =
-        "opacity .8s ease, transform .8s ease";
+    hero.style.transition = "1s ease";
 
     hero.style.opacity = "0";
-
-    hero.style.transform =
-        "scale(1.04)";
 
     setTimeout(() => {
 
         hero.style.display = "none";
 
-        letterSection.classList.remove("hidden");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "instant"
-        });
-
-    }, 800);
-
-});
-
-
-/* =========================
-   TURN THE PAGE
-========================= */
-
-const continueBtn =
-    document.getElementById("continueBtn");
-
-const questionSection =
-    document.getElementById("questionSection");
-
-
-continueBtn.addEventListener("click", () => {
-
-    letterSection.style.transition =
-        "opacity .7s ease, transform .7s ease";
-
-    letterSection.style.opacity = "0";
-
-    letterSection.style.transform =
-        "translateY(-40px)";
-
-    setTimeout(() => {
-
-        letterSection.style.display = "none";
-
-        questionSection.classList.remove("hidden");
-
-        questionSection.style.opacity = "0";
-
-        questionSection.style.transform =
-            "translateY(40px)";
-
-        requestAnimationFrame(() => {
-
-            questionSection.style.transition =
-                "opacity .8s ease, transform .8s ease";
-
-            questionSection.style.opacity = "1";
-
-            questionSection.style.transform =
-                "translateY(0)";
-        });
+        daySection.classList.remove("hidden");
 
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
 
-    }, 700);
+    }, 900);
+};
+
+
+/* =========================
+   LOOK AT THE SKY
+========================= */
+
+const skyBtn =
+    document.getElementById("skyBtn");
+
+const skyMessage =
+    document.getElementById("skyMessage");
+
+
+skyBtn.onclick = () => {
+
+    skyMessage.classList.toggle("open");
+
+    if (skyMessage.classList.contains("open")) {
+
+        skyBtn.innerHTML =
+            "🌙 Keep Looking";
+
+    } else {
+
+        skyBtn.innerHTML =
+            "✨ Look At The Sky";
+    }
+};
+
+
+/* =========================
+   LETTER
+========================= */
+
+const letterBtn =
+    document.getElementById("letterBtn");
+
+const letter =
+    document.getElementById("letter");
+
+
+letterBtn.onclick = () => {
+
+    letter.classList.remove("hidden");
+
+    letterBtn.innerHTML =
+        "💌 The Letter Is Yours";
+
+    letter.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+};
+
+
+/* =========================
+   SHOW QUESTION
+========================= */
+
+const questionSection =
+    document.getElementById("questionSection");
+
+
+setTimeout(() => {
+
+    if (!questionSection.classList.contains("hidden")) {
+        return;
+    }
+
+}, 100);
+
+
+/*
+   The question appears after
+   the letter has been opened.
+*/
+
+letterBtn.addEventListener("click", () => {
+
+    setTimeout(() => {
+
+        questionSection.classList.remove("hidden");
+
+    }, 1200);
 
 });
 
 
 /* =========================
-   QUESTION BUTTONS
+   NO BUTTON
+========================= */
+
+const noBtn =
+    document.getElementById("noBtn");
+
+
+noBtn.addEventListener("mouseover", () => {
+
+    const x =
+        Math.random() * 220 - 110;
+
+    const y =
+        Math.random() * 120 - 60;
+
+    noBtn.style.transform =
+        `translate(${x}px, ${y}px)`;
+});
+
+
+/* =========================
+   YES BUTTON
 ========================= */
 
 const yesBtn =
     document.getElementById("yesBtn");
 
-const foreverBtn =
-    document.getElementById("foreverBtn");
-
-const answer =
-    document.getElementById("answer");
+const response =
+    document.getElementById("response");
 
 
-yesBtn.addEventListener("click", () => {
+yesBtn.onclick = () => {
 
-    answer.innerHTML =
-        "Then I'd keep that evening forever. ❤️";
+    response.innerHTML = `
+        ✨ Then let's keep finding
+        our way back to the stars. ❤️
+    `;
 
-    createHearts();
+    createMagicBurst();
 
-});
-
-
-foreverBtn.addEventListener("click", () => {
-
-    answer.innerHTML =
-        "Then perhaps some stories really are meant to last. ✨";
-
-    createHearts();
-
-});
+};
 
 
 /* =========================
-   HEART EFFECT
+   MAGIC BURST
 ========================= */
 
-function createHearts() {
+const effects =
+    document.getElementById("effects");
 
-    for (let i = 0; i < 25; i++) {
+
+function createMagicBurst() {
+
+    const symbols = [
+        "❤️",
+        "✨",
+        "⭐",
+        "🌙",
+        "✦"
+    ];
+
+    for (let i = 0; i < 35; i++) {
 
         setTimeout(() => {
 
-            const heart =
+            const element =
                 document.createElement("div");
 
-            heart.innerHTML =
-                ["❤️", "✦", "🕷️", "✨"]
-                [Math.floor(Math.random() * 4)];
+            element.className =
+                "floating";
 
-            heart.style.position = "fixed";
+            element.innerHTML =
+                symbols[
+                    Math.floor(
+                        Math.random() *
+                        symbols.length
+                    )
+                ];
 
-            heart.style.left =
+            element.style.left =
                 Math.random() * 100 + "vw";
 
-            heart.style.top = "100vh";
+            element.style.animationDuration =
+                (3 + Math.random() * 3) + "s";
 
-            heart.style.fontSize =
-                (16 + Math.random() * 18) + "px";
-
-            heart.style.pointerEvents =
-                "none";
-
-            heart.style.zIndex = "999";
-
-            heart.style.transition =
-                "transform 3s ease, opacity 3s ease";
-
-            document.body.appendChild(heart);
-
-            requestAnimationFrame(() => {
-
-                heart.style.transform =
-                    `translateY(-110vh) rotate(${Math.random() * 180}deg)`;
-
-                heart.style.opacity = "0";
-
-            });
+            effects.appendChild(element);
 
             setTimeout(() => {
-                heart.remove();
-            }, 3000);
+                element.remove();
+            }, 6000);
 
         }, i * 80);
     }
@@ -237,81 +276,98 @@ function createHearts() {
 
 
 /* =========================
-   MUSIC
+   STARS
 ========================= */
 
-const musicBtn =
-    document.getElementById("musicBtn");
-
-const song =
-    document.getElementById("song");
+const stars =
+    document.getElementById("stars");
 
 
-let playing = false;
+function createStars() {
 
+    for (let i = 0; i < 90; i++) {
 
-musicBtn.addEventListener("click", () => {
+        const star =
+            document.createElement("div");
 
-    if (!playing) {
+        star.className = "star";
 
-        song.play()
-            .then(() => {
+        star.style.left =
+            Math.random() * 100 + "%";
 
-                musicBtn.innerHTML =
-                    "⏸ Pause Our Song";
+        star.style.top =
+            Math.random() * 100 + "%";
 
-                playing = true;
+        star.style.animationDelay =
+            Math.random() * 4 + "s";
 
-            })
-            .catch(() => {
+        star.style.animationDuration =
+            (2 + Math.random() * 4) + "s";
 
-                musicBtn.innerHTML =
-                    "🎵 Add the song file first";
+        const size =
+            1 + Math.random() * 3;
 
-            });
+        star.style.width =
+            size + "px";
 
-    } else {
+        star.style.height =
+            size + "px";
 
-        song.pause();
-
-        musicBtn.innerHTML =
-            "🎵 Play Our Song";
-
-        playing = false;
+        stars.appendChild(star);
     }
+}
 
-});
+
+createStars();
 
 
 /* =========================
-   FLOATING PARTICLES
+   OCCASIONAL SHOOTING STAR
 ========================= */
 
-const particleContainer =
-    document.getElementById("particles");
+function shootingStar() {
 
-
-function createParticle() {
-
-    const particle =
+    const star =
         document.createElement("div");
 
-    particle.className = "particle";
+    star.style.position = "fixed";
+    star.style.width = "90px";
+    star.style.height = "2px";
 
-    particle.style.left =
-        Math.random() * 100 + "vw";
+    star.style.background =
+        "linear-gradient(90deg, transparent, #fff4c7)";
 
-    particle.style.top =
-        (70 + Math.random() * 30) + "vh";
+    star.style.top =
+        Math.random() * 45 + "%";
 
-    particle.style.animationDuration =
-        (3 + Math.random() * 3) + "s";
+    star.style.left =
+        Math.random() * 80 + "%";
 
-    particleContainer.appendChild(particle);
+    star.style.transform =
+        "rotate(-25deg)";
+
+    star.style.zIndex = "2";
+
+    star.style.pointerEvents = "none";
+
+    star.style.transition =
+        "1.2s ease";
+
+    document.body.appendChild(star);
+
+    requestAnimationFrame(() => {
+
+        star.style.transform =
+            "translate(-250px, 180px) rotate(-25deg)";
+
+        star.style.opacity = "0";
+
+    });
 
     setTimeout(() => {
-        particle.remove();
-    }, 6000);
+        star.remove();
+    }, 1400);
 }
 
-setInterval(createParticle, 700);
+
+setInterval(shootingStar, 7000);
