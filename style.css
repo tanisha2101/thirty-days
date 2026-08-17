@@ -4,79 +4,162 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
+
     min-height: 100vh;
+
     overflow-x: hidden;
 
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
 
-    color: #f8f1df;
+    color: #edf2f7;
 
     background:
-        linear-gradient(
-            rgba(5, 10, 28, 0.45),
-            rgba(5, 10, 28, 0.62)
-        ),
-        url("observatory.jfif");
 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+        linear-gradient(
+            rgba(20, 29, 47, 0.58),
+            rgba(38, 43, 63, 0.78)
+        ),
+
+        linear-gradient(
+            145deg,
+            #536b86,
+            #303c55,
+            #5d536d
+        );
 
     position: relative;
+
 }
 
 
 /* =========================
-   STAR FIELD
+   RAIN
 ========================= */
 
-#stars {
+#rain {
+
     position: fixed;
+
     inset: 0;
 
     pointer-events: none;
 
     z-index: 1;
+
     overflow: hidden;
+
 }
 
-.star {
+
+.drop {
+
     position: absolute;
 
-    width: 3px;
-    height: 3px;
+    width: 1px;
+
+    height: 65px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(220,235,255,0.65)
+        );
+
+    transform: rotate(12deg);
+
+    animation: rainFall linear infinite;
+
+}
+
+
+@keyframes rainFall {
+
+    from {
+
+        transform:
+            translateY(-100px)
+            translateX(0)
+            rotate(12deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(110vh)
+            translateX(-80px)
+            rotate(12deg);
+
+    }
+
+}
+
+
+/* =========================
+   MIST
+========================= */
+
+.mist {
+
+    position: fixed;
+
+    width: 500px;
+
+    height: 180px;
 
     border-radius: 50%;
 
-    background: #fff4d0;
+    background:
+        rgba(220,230,240,0.08);
 
-    box-shadow:
-        0 0 6px rgba(255, 244, 208, 0.8);
+    filter: blur(45px);
 
-    animation: twinkle 3s infinite ease-in-out;
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation: mistMove 12s ease-in-out infinite alternate;
+
 }
 
-@keyframes twinkle {
 
-    0% {
-        opacity: 0.2;
-        transform: scale(0.7);
+.mist-one {
+
+    top: 20%;
+
+    left: -150px;
+
+}
+
+
+.mist-two {
+
+    bottom: 10%;
+
+    right: -150px;
+
+    animation-delay: 3s;
+
+}
+
+
+@keyframes mistMove {
+
+    from {
+        transform: translateX(0);
     }
 
-    50% {
-        opacity: 1;
-        transform: scale(1.4);
+    to {
+        transform: translateX(180px);
     }
 
-    100% {
-        opacity: 0.2;
-        transform: scale(0.7);
-    }
 }
 
 
@@ -85,97 +168,103 @@ body {
 ========================= */
 
 .hero {
+
     min-height: 100vh;
 
+    position: relative;
+
+    z-index: 3;
+
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
 
     padding: 40px 25px;
 
-    position: relative;
-    z-index: 2;
 }
 
 
-.eyebrow {
-    font-family: 'Great Vibes', cursive;
+.little-heading {
 
-    font-size: 32px;
+    font-family: 'Allura', cursive;
 
-    color: #f1d9a8;
+    font-size: 38px;
 
-    margin-bottom: 20px;
+    color: #dce8f4;
+
+    margin-bottom: 22px;
 
     text-shadow:
-        0 0 15px rgba(241, 217, 168, 0.5);
+        0 3px 15px rgba(0,0,0,0.3);
+
 }
 
 
 h1 {
-    font-family: 'Cormorant Garamond', serif;
 
-    font-size: clamp(55px, 8vw, 105px);
+    font-family: 'DM Serif Display', serif;
 
-    line-height: 0.9;
+    font-size: clamp(55px, 8vw, 100px);
 
-    font-weight: 600;
+    font-weight: 400;
 
-    letter-spacing: -2px;
+    line-height: 0.95;
 
-    color: #fff4dc;
+    color: #f4f7fa;
 
     text-shadow:
-        0 4px 25px rgba(0, 0, 0, 0.7);
+        0 5px 25px rgba(0,0,0,0.45);
 
     margin-bottom: 35px;
+
 }
 
 
 .intro {
-    font-family: 'Cormorant Garamond', serif;
 
-    font-size: 25px;
+    font-family: 'Nunito', sans-serif;
 
-    line-height: 1.6;
+    font-size: 20px;
 
-    color: #f7ead0;
+    line-height: 1.8;
 
-    max-width: 750px;
+    color: #e1e8ef;
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
+
 }
 
 
 #countdown {
-    padding: 20px 45px;
 
-    border: 1px solid rgba(255, 239, 204, 0.5);
+    padding: 17px 35px;
 
-    border-radius: 60px;
+    border-radius: 50px;
 
-    background: rgba(8, 15, 38, 0.42);
+    background:
+        rgba(235,242,250,0.12);
 
-    backdrop-filter: blur(8px);
+    border: 1px solid
+        rgba(235,242,250,0.35);
 
-    font-family: 'Cormorant Garamond', serif;
+    backdrop-filter: blur(12px);
 
-    font-size: 28px;
+    font-size: 20px;
 
     font-weight: 600;
 
     letter-spacing: 1px;
 
-    color: #fff0c9;
+    margin-bottom: 28px;
 
-    margin-bottom: 35px;
+    color: #f3f7fb;
 
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -184,48 +273,78 @@ h1 {
 ========================= */
 
 button {
+
     border: none;
 
     cursor: pointer;
 
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
 
     transition: 0.35s ease;
+
 }
 
 
 #startBtn {
 
-    padding: 18px 38px;
+    padding: 17px 38px;
 
     border-radius: 50px;
-
-    font-size: 17px;
-
-    font-weight: 600;
-
-    color: #fff;
 
     background:
         linear-gradient(
             135deg,
-            #283d72,
-            #754e78
+            #718aa6,
+            #806d8f
         );
 
-    border: 1px solid rgba(255,255,255,0.35);
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 700;
 
     box-shadow:
-        0 15px 45px rgba(0,0,0,0.35);
+        0 15px 40px rgba(0,0,0,0.3);
+
 }
 
 
 #startBtn:hover {
 
-    transform: translateY(-5px) scale(1.03);
+    transform:
+        translateY(-4px)
+        scale(1.03);
 
-    box-shadow:
-        0 20px 55px rgba(0,0,0,0.5);
+}
+
+
+.sound-button {
+
+    margin-top: 14px;
+
+    padding: 10px 22px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    color: #e4ebf2;
+
+    border:
+        1px solid rgba(255,255,255,0.2);
+
+    font-size: 14px;
+
+}
+
+
+.sound-button:hover {
+
+    background:
+        rgba(255,255,255,0.16);
+
 }
 
 
@@ -234,8 +353,11 @@ button {
 ========================= */
 
 .hidden {
+
     display: none !important;
+
 }
+
 
 #daySection {
 
@@ -246,178 +368,146 @@ button {
     padding: 100px 20px 120px;
 
     background:
-        linear-gradient(
-            rgba(5, 10, 28, 0.86),
-            rgba(8, 12, 30, 0.92)
-        );
+        rgba(18,25,41,0.72);
+
 }
 
 
 /* =========================
-   OBSERVATORY CARD
+   RAIN CARD
 ========================= */
 
-.observatory-card {
+.rain-card {
 
     max-width: 760px;
 
-    margin: 0 auto 100px;
-
-    padding: 65px 45px;
+    margin: auto auto 100px;
 
     text-align: center;
 
-    border-radius: 8px;
-
-    border: 1px solid rgba(221, 194, 137, 0.45);
+    padding: 60px 40px;
 
     background:
-        linear-gradient(
-            rgba(21, 28, 57, 0.88),
-            rgba(12, 17, 38, 0.94)
-        );
+        rgba(72,84,105,0.48);
+
+    border:
+        1px solid rgba(210,225,240,0.25);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(14px);
 
     box-shadow:
-        0 30px 90px rgba(0,0,0,0.5);
+        0 25px 70px rgba(0,0,0,0.35);
 
-    position: relative;
 }
 
 
-.observatory-card::before,
-.observatory-card::after {
+.rain-icon {
 
-    content: "✦";
+    font-size: 42px;
 
-    position: absolute;
+    margin-bottom: 15px;
 
-    color: #dcbf7c;
-
-    font-size: 22px;
 }
 
 
-.observatory-card::before {
-    top: 22px;
-    left: 25px;
-}
+.rain-card h2 {
 
+    font-family: 'DM Serif Display', serif;
 
-.observatory-card::after {
-    bottom: 22px;
-    right: 25px;
-}
-
-
-.ornament {
-
-    color: #dcbf7c;
-
-    margin-bottom: 20px;
-
-    letter-spacing: 5px;
-}
-
-
-.observatory-card h2 {
-
-    font-family: 'Great Vibes', cursive;
-
-    font-size: 55px;
+    font-size: 48px;
 
     font-weight: 400;
 
-    color: #ead19a;
+    color: #e4edf5;
 
     margin-bottom: 25px;
+
 }
 
 
-.observatory-card > p {
+.rain-card > p {
 
-    font-family: 'Cormorant Garamond', serif;
+    max-width: 620px;
 
-    font-size: 24px;
+    margin: auto auto 30px;
 
-    line-height: 1.7;
+    font-size: 19px;
 
-    color: #eee4d0;
+    line-height: 1.9;
 
-    max-width: 600px;
+    color: #dce5ed;
 
-    margin: auto auto 35px;
 }
 
 
-/* Telescope button */
+#cloudBtn {
 
-#skyBtn {
-
-    padding: 14px 30px;
+    padding: 14px 28px;
 
     border-radius: 50px;
 
-    background: transparent;
+    background:
+        rgba(215,226,238,0.13);
 
-    color: #e7cb91;
+    border:
+        1px solid rgba(215,226,238,0.4);
 
-    border: 1px solid #bfa56f;
+    color: #e8f0f7;
 
-    font-size: 15px;
 }
 
 
-#skyBtn:hover {
+#cloudBtn:hover {
 
-    background: #e7cb91;
+    background: #dce7f1;
 
-    color: #10162d;
+    color: #354257;
 
-    transform: translateY(-3px);
 }
 
 
-/* Sky message */
+/* =========================
+   CLOUD MESSAGE
+========================= */
 
-.sky-message {
+#cloudMessage {
 
     max-height: 0;
 
-    opacity: 0;
-
     overflow: hidden;
+
+    opacity: 0;
 
     transition: 1s ease;
 
-    margin-top: 0;
 }
 
 
-.sky-message.open {
+#cloudMessage.open {
 
-    max-height: 300px;
+    max-height: 250px;
 
     opacity: 1;
 
     margin-top: 35px;
+
 }
 
 
-.sky-message p {
+#cloudMessage p {
 
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Allura', cursive;
 
-    font-size: 25px;
+    font-size: 34px;
 
-    line-height: 1.7;
+    line-height: 1.5;
 
-    font-style: italic;
+    color: #e6eef5;
 
-    color: #f2dba9;
+    margin: 10px auto;
 
-    margin: 15px auto;
-
-    max-width: 600px;
 }
 
 
@@ -432,6 +522,7 @@ button {
     margin: auto;
 
     text-align: center;
+
 }
 
 
@@ -441,16 +532,22 @@ button {
 
     border-radius: 50px;
 
+    background:
+        linear-gradient(
+            135deg,
+            #91a9bd,
+            #88799a
+        );
+
+    color: white;
+
     font-size: 17px;
 
-    color: #151a32;
-
-    background: #e5ca91;
-
-    font-weight: 600;
+    font-weight: 700;
 
     box-shadow:
-        0 12px 35px rgba(0,0,0,0.35);
+        0 15px 40px rgba(0,0,0,0.3);
+
 }
 
 
@@ -458,11 +555,10 @@ button {
 
     transform: translateY(-4px);
 
-    background: #f0dba9;
 }
 
 
-/* Letter paper */
+/* LETTER PAPER */
 
 .letter {
 
@@ -470,78 +566,90 @@ button {
 
     padding: 60px 55px;
 
-    background:
-        linear-gradient(
-            rgba(247, 237, 213, 0.96),
-            rgba(238, 225, 194, 0.97)
-        );
-
-    color: #352d29;
-
-    border-radius: 5px;
-
-    border: 1px solid #c8ad78;
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,0.5);
-
     text-align: left;
 
-    animation: letterOpen 1s ease;
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf2f5,
+            #dce5eb
+        );
+
+    color: #354052;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.4);
+
+    animation: letterAppear 1s ease;
+
 }
 
 
-.letter-top {
+.letter-title {
 
     text-align: center;
 
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Allura', cursive;
 
-    font-size: 34px;
+    font-size: 42px;
 
-    color: #60445a;
+    color: #65758a;
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
+
 }
 
 
 .letter p {
 
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'DM Serif Display', serif;
 
-    font-size: 22px;
+    font-size: 21px;
 
-    line-height: 1.9;
+    line-height: 1.85;
 
     white-space: pre-line;
+
 }
 
 
 .signature {
 
-    margin-top: 35px;
+    margin-top: 30px;
 
     text-align: right;
 
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Allura', cursive;
 
-    font-size: 32px;
+    font-size: 36px;
 
-    color: #60445a;
+    color: #65758a;
+
 }
 
 
-@keyframes letterOpen {
+@keyframes letterAppear {
 
     from {
+
         opacity: 0;
-        transform: translateY(35px);
+
+        transform:
+            translateY(35px);
+
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
     }
+
 }
 
 
@@ -556,62 +664,70 @@ button {
     margin: 100px auto 0;
 
     text-align: center;
+
 }
 
 
 .question-card {
 
-    padding: 55px 35px;
+    padding: 55px 30px;
+
+    border-radius: 25px;
 
     background:
-        rgba(18, 24, 50, 0.88);
+        rgba(72,84,105,0.48);
 
-    border: 1px solid rgba(222, 193, 133, 0.4);
+    border:
+        1px solid rgba(210,225,240,0.25);
 
-    border-radius: 8px;
+    backdrop-filter: blur(14px);
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,0.45);
+        0 25px 70px rgba(0,0,0,0.4);
+
 }
 
 
-.question-star {
+.tiny-rain {
 
-    color: #e2c481;
-
-    font-size: 30px;
+    font-size: 22px;
 
     margin-bottom: 15px;
+
 }
 
 
 .question-card h2 {
 
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Allura', cursive;
 
     font-size: 50px;
 
     font-weight: 400;
 
-    color: #e8cf98;
+    color: #e3edf5;
+
 }
 
 
 .questionText {
 
-    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
 
-    font-size: 25px;
+    line-height: 1.8;
 
-    line-height: 1.7;
-
-    color: #eee4d3;
+    color: #dce5ed;
 
     margin: 30px auto;
+
 }
 
 
 .buttons {
+
+    position: relative;
+
+    min-height: 70px;
 
     display: flex;
 
@@ -619,9 +735,6 @@ button {
 
     gap: 25px;
 
-    min-height: 70px;
-
-    position: relative;
 }
 
 
@@ -631,16 +744,17 @@ button {
 
     border-radius: 50px;
 
-    color: white;
-
     background:
         linear-gradient(
             135deg,
-            #8b5277,
-            #a66a80
+            #809bb2,
+            #8c7898
         );
 
-    font-size: 17px;
+    color: white;
+
+    font-weight: 700;
+
 }
 
 
@@ -650,32 +764,30 @@ button {
 
     border-radius: 50px;
 
-    background: #dedbd5;
+    background: #dce2e6;
 
-    color: #333;
-
-    font-size: 17px;
+    color: #3b4655;
 
     position: absolute;
+
 }
 
 
 #response {
 
-    margin-top: 35px;
+    margin-top: 30px;
 
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Allura', cursive;
 
-    font-size: 35px;
+    font-size: 36px;
 
-    color: #e4cb94;
+    color: #e3edf5;
 
-    line-height: 1.5;
 }
 
 
 /* =========================
-   FLOATING EFFECTS
+   FLOATING DROPS
 ========================= */
 
 #effects {
@@ -686,9 +798,8 @@ button {
 
     pointer-events: none;
 
-    z-index: 10;
+    z-index: 20;
 
-    overflow: hidden;
 }
 
 
@@ -700,15 +811,22 @@ button {
 
     font-size: 20px;
 
-    animation: floatUp 5s linear forwards;
+    animation:
+        floatUp 5s linear forwards;
+
 }
 
 
 @keyframes floatUp {
 
     from {
-        transform: translateY(0) scale(0.7);
+
+        transform:
+            translateY(0)
+            scale(.7);
+
         opacity: 0;
+
     }
 
     20% {
@@ -716,9 +834,15 @@ button {
     }
 
     to {
-        transform: translateY(-110vh) scale(1.4);
+
+        transform:
+            translateY(-110vh)
+            scale(1.2);
+
         opacity: 0;
+
     }
+
 }
 
 
@@ -728,57 +852,45 @@ button {
 
 @media (max-width: 600px) {
 
-    .eyebrow {
-        font-size: 25px;
+    .little-heading {
+        font-size: 29px;
     }
 
     h1 {
         font-size: 52px;
-        line-height: 0.95;
     }
 
     .intro {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     #countdown {
-        font-size: 18px;
-        padding: 17px 20px;
+        font-size: 16px;
+        padding: 15px 18px;
     }
 
-    #daySection {
-        padding-top: 70px;
-    }
-
-    .observatory-card {
+    .rain-card {
         padding: 45px 25px;
     }
 
-    .observatory-card h2 {
-        font-size: 45px;
-    }
-
-    .observatory-card > p {
-        font-size: 21px;
+    .rain-card h2 {
+        font-size: 40px;
     }
 
     .letter {
         padding: 40px 25px;
     }
 
-    .letter p {
-        font-size: 20px;
+    .letter-title {
+        font-size: 36px;
     }
 
-    .question-card {
-        padding: 45px 20px;
+    .letter p {
+        font-size: 19px;
     }
 
     .question-card h2 {
         font-size: 43px;
     }
 
-    .questionText {
-        font-size: 21px;
-    }
 }
