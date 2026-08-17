@@ -1,124 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Thirty Days, One Heart ❤️</title>
+    <title>A Rainy Little Letter 🌧️</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Allura&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- STAR LAYER -->
-    <div id="stars"></div>
+    <!-- RAIN -->
+    <div id="rain"></div>
+
+    <!-- MIST -->
+    <div class="mist mist-one"></div>
+    <div class="mist mist-two"></div>
+
+
+    <!-- RAIN SOUND -->
+    <audio id="rainSound" loop>
+        <source src="rain.mp3" type="audio/mpeg">
+    </audio>
+
 
     <!-- HERO -->
+
     <section class="hero" id="hero">
 
-        <div class="eyebrow">
-            A Little Note Beneath The Stars ✨
+        <div class="little-heading">
+            A Little Rainy-Day Note ☁️
         </div>
 
+
         <h1>
-            Twenty-One Sunsets,<br>
+            Twenty Sunsets,<br>
             Until Your Birthday
         </h1>
 
+
         <p class="intro">
-            Somewhere beneath this same sky,<br>
-            there is always something worth wishing for.
+
+            Some days are bright.<br>
+            Some days are covered in clouds.<br>
+            And some simply need a little rain.
+
         </p>
 
+
         <div id="countdown">
-            21 Days · 00 Hours · 00 Minutes · 00 Seconds
+            Loading...
         </div>
 
+
         <button id="startBtn">
-            🔭 Look Through The Telescope
+
+            ☔ Step Into The Rain
+
+        </button>
+
+
+        <button id="soundBtn" class="sound-button">
+
+            🔊 Play The Rain
+
         </button>
 
     </section>
 
 
-    <!-- MAIN CONTENT -->
+
+    <!-- MAIN -->
+
     <main id="daySection" class="hidden">
 
-        <!-- OBSERVATORY INTRO -->
-        <section class="observatory-card">
 
-            <div class="ornament">✦ ───────── ✦</div>
+        <!-- RAINY DAY CARD -->
+
+        <section class="rain-card">
+
+            <div class="rain-icon">
+                ☁️
+            </div>
+
 
             <h2>
-                The Observatory
+                Some Days Are Just Rainy
             </h2>
 
+
             <p>
-                Some things are too beautiful to be seen in a hurry.
-                You have to stop, look up, and let yourself notice them.
+
+                And that's okay.
+
+                Not every day has to be bright.
+                Not every moment has to make sense.
+
+                Sometimes the sky needs to cry a little
+                before it becomes blue again.
+
             </p>
 
-            <button id="skyBtn">
-                ✨ Look At The Sky
+
+            <button id="cloudBtn">
+
+                🌧️ Listen To The Rain
+
             </button>
 
-            <div id="skyMessage" class="sky-message">
-                <span>✦</span>
+
+            <div id="cloudMessage">
+
+                <span>☔</span>
+
                 <p>
-                    And somehow, out of all the stars in the sky,
-                    I am still happiest about the one that exists in my world.
+                    Maybe the nicest thing about rain
+                    is knowing that it never stays forever.
                 </p>
-                <span>✦</span>
+
+                <span>☔</span>
+
             </div>
 
         </section>
+
 
 
         <!-- LETTER -->
+
         <section class="letter-section">
 
             <button id="letterBtn">
+
                 💌 Open Today's Letter
+
             </button>
+
 
             <div id="letter" class="letter hidden">
 
-                <div class="letter-top">
-                    ✦ A Letter Beneath The Stars ✦
+                <div class="letter-title">
+
+                    A Little Letter For A Rainy Day
+
                 </div>
 
+
                 <p>
-                    My favourite things about life have never been the loudest ones.
 
-                    Sometimes it is simply a quiet evening, a beautiful sky,
-                    a little laughter, or having someone who makes ordinary
-                    moments feel special.
+                    My Nushi,
 
-                    And somehow, you became all of those beautiful parts
-                    of my life.
+                    There will be gloomy days.
+                    There will be bright ones too.
 
-                    If I could make one wish beneath all these stars,
-                    it would be for many more ordinary evenings,
-                    silly conversations, little adventures,
-                    and I wish all of them with you.
+                    There will be days when everything feels easy,
+                    and days when life feels a little heavier than usual.
 
-                    Until then, I'll keep looking up at the sky
-                    and being grateful that somewhere in this enormous universe,
-                    our paths found each other.
+                    But however the day looks,
+                    however the weather feels,
+                    I hope you always remember this:
+
+                    You never have to be at your perfect self to be loved.
+
+                    On the shiny days, on the rainy ones,
+                    on the days when everything feels right
+                    and on the days when nothing seems to.
+
+                    I will always want to be there for you,
+                    beside you through all of them.
+
+                    Because life isn't made beautiful
+                    by having perfect days.
+
+                    It's made beautiful by having someone
+                    who makes even the rainy ones worth remembering.
 
                     ❤️
+
                 </p>
 
+
                 <div class="signature">
+
                     Always,
                     <br>
                     Bui
+
                 </div>
 
             </div>
@@ -126,24 +203,32 @@
         </section>
 
 
+
         <!-- QUESTION -->
+
         <section id="questionSection" class="question-section hidden">
 
             <div class="question-card">
 
-                <div class="question-star">
-                    ✦
+                <div class="tiny-rain">
+                    💧 ✦ 💧
                 </div>
 
+
                 <h2>
-                    One Last Question
+                    Before You Go...
                 </h2>
 
+
                 <p class="questionText">
-                    If the universe gave us another thousand little moments together...
-                    <br><br>
-                    Would you choose them?
+
+                    If the sky clears up tomorrow,
+                    <br>
+                    would you like to keep making
+                    little memories with me?
+
                 </p>
+
 
                 <div class="buttons">
 
@@ -151,11 +236,13 @@
                         Yes ❤️
                     </button>
 
+
                     <button id="noBtn">
                         No
                     </button>
 
                 </div>
+
 
                 <div id="response"></div>
 
@@ -163,13 +250,17 @@
 
         </section>
 
+
     </main>
 
 
-    <!-- FLOATING HEARTS / STARS -->
+    <!-- FLOATING EFFECTS -->
+
     <div id="effects"></div>
+
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
