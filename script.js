@@ -11,9 +11,12 @@ const countdown =
 
 function updateCountdown() {
 
-    const now = new Date().getTime();
+    const now =
+        new Date().getTime();
 
-    const distance = targetDate - now;
+    const distance =
+        targetDate - now;
+
 
     if (distance <= 0) {
 
@@ -23,31 +26,44 @@ function updateCountdown() {
         return;
     }
 
+
     const days =
         Math.floor(
-            distance / (1000 * 60 * 60 * 24)
+            distance /
+            (1000 * 60 * 60 * 24)
         );
+
 
     const hours =
         Math.floor(
-            (distance % (1000 * 60 * 60 * 24))
-            / (1000 * 60 * 60)
+            (distance %
+                (1000 * 60 * 60 * 24))
+            /
+            (1000 * 60 * 60)
         );
+
 
     const mins =
         Math.floor(
-            (distance % (1000 * 60 * 60))
-            / (1000 * 60)
+            (distance %
+                (1000 * 60 * 60))
+            /
+            (1000 * 60)
         );
+
 
     const secs =
         Math.floor(
-            (distance % (1000 * 60))
-            / 1000
+            (distance %
+                (1000 * 60))
+            /
+            1000
         );
+
 
     countdown.innerHTML =
         `${days} Days · ${hours} Hours · ${mins} Minutes · ${secs} Seconds`;
+
 }
 
 
@@ -57,7 +73,103 @@ setInterval(updateCountdown, 1000);
 
 
 /* =========================
-   START / TELESCOPE
+   RAIN
+========================= */
+
+const rain =
+    document.getElementById("rain");
+
+
+function createRain() {
+
+    for (let i = 0; i < 120; i++) {
+
+        const drop =
+            document.createElement("div");
+
+        drop.className = "drop";
+
+
+        drop.style.left =
+            Math.random() * 100 + "vw";
+
+
+        drop.style.top =
+            Math.random() * -100 + "vh";
+
+
+        drop.style.opacity =
+            0.15 +
+            Math.random() * 0.45;
+
+
+        drop.style.animationDuration =
+            0.6 +
+            Math.random() * 0.8 +
+            "s";
+
+
+        drop.style.animationDelay =
+            Math.random() * 2 +
+            "s";
+
+
+        rain.appendChild(drop);
+
+    }
+
+}
+
+
+createRain();
+
+
+/* =========================
+   RAIN SOUND
+========================= */
+
+const rainSound =
+    document.getElementById("rainSound");
+
+const soundBtn =
+    document.getElementById("soundBtn");
+
+
+rainSound.volume = 0.28;
+
+
+soundBtn.onclick = () => {
+
+    if (rainSound.paused) {
+
+        rainSound.play()
+            .then(() => {
+
+                soundBtn.innerHTML =
+                    "🔊 Rain is playing";
+
+            })
+            .catch(() => {
+
+                soundBtn.innerHTML =
+                    "⚠️ Tap again to play rain";
+
+            });
+
+    } else {
+
+        rainSound.pause();
+
+        soundBtn.innerHTML =
+            "🔇 Rain is muted";
+
+    }
+
+};
+
+
+/* =========================
+   ENTER PAGE
 ========================= */
 
 const startBtn =
@@ -72,15 +184,35 @@ const daySection =
 
 startBtn.onclick = () => {
 
-    hero.style.transition = "1s ease";
+    /* Start rain automatically
+       because the user has interacted */
 
-    hero.style.opacity = "0";
+    if (rainSound.paused) {
+
+        rainSound.play()
+            .catch(() => {});
+
+        soundBtn.innerHTML =
+            "🔊 Rain is playing";
+
+    }
+
+
+    hero.style.transition =
+        "1s ease";
+
+    hero.style.opacity =
+        "0";
+
 
     setTimeout(() => {
 
-        hero.style.display = "none";
+        hero.style.display =
+            "none";
 
-        daySection.classList.remove("hidden");
+        daySection.classList.remove(
+            "hidden"
+        );
 
         window.scrollTo({
             top: 0,
@@ -88,34 +220,44 @@ startBtn.onclick = () => {
         });
 
     }, 900);
+
 };
 
 
 /* =========================
-   LOOK AT THE SKY
+   LISTEN TO RAIN
 ========================= */
 
-const skyBtn =
-    document.getElementById("skyBtn");
+const cloudBtn =
+    document.getElementById("cloudBtn");
 
-const skyMessage =
-    document.getElementById("skyMessage");
+const cloudMessage =
+    document.getElementById("cloudMessage");
 
 
-skyBtn.onclick = () => {
+cloudBtn.onclick = () => {
 
-    skyMessage.classList.toggle("open");
+    cloudMessage.classList.toggle(
+        "open"
+    );
 
-    if (skyMessage.classList.contains("open")) {
 
-        skyBtn.innerHTML =
-            "🌙 Keep Looking";
+    if (
+        cloudMessage.classList.contains(
+            "open"
+        )
+    ) {
+
+        cloudBtn.innerHTML =
+            "☁️ Let It Rain";
 
     } else {
 
-        skyBtn.innerHTML =
-            "✨ Look At The Sky";
+        cloudBtn.innerHTML =
+            "🌧️ Listen To The Rain";
+
     }
+
 };
 
 
@@ -129,53 +271,42 @@ const letterBtn =
 const letter =
     document.getElementById("letter");
 
+const questionSection =
+    document.getElementById(
+        "questionSection"
+    );
+
 
 letterBtn.onclick = () => {
 
-    letter.classList.remove("hidden");
+    letter.classList.remove(
+        "hidden"
+    );
+
 
     letterBtn.innerHTML =
         "💌 The Letter Is Yours";
 
-    letter.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-
-};
-
-
-/* =========================
-   SHOW QUESTION
-========================= */
-
-const questionSection =
-    document.getElementById("questionSection");
-
-
-setTimeout(() => {
-
-    if (!questionSection.classList.contains("hidden")) {
-        return;
-    }
-
-}, 100);
-
-
-/*
-   The question appears after
-   the letter has been opened.
-*/
-
-letterBtn.addEventListener("click", () => {
 
     setTimeout(() => {
 
-        questionSection.classList.remove("hidden");
+        letter.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
 
-    }, 1200);
+    }, 100);
 
-});
+
+    setTimeout(() => {
+
+        questionSection.classList.remove(
+            "hidden"
+        );
+
+    }, 1500);
+
+};
 
 
 /* =========================
@@ -186,17 +317,22 @@ const noBtn =
     document.getElementById("noBtn");
 
 
-noBtn.addEventListener("mouseover", () => {
+noBtn.addEventListener(
+    "mouseover",
+    () => {
 
-    const x =
-        Math.random() * 220 - 110;
+        const x =
+            Math.random() * 220 - 110;
 
-    const y =
-        Math.random() * 120 - 60;
+        const y =
+            Math.random() * 120 - 60;
 
-    noBtn.style.transform =
-        `translate(${x}px, ${y}px)`;
-});
+
+        noBtn.style.transform =
+            `translate(${x}px, ${y}px)`;
+
+    }
+);
 
 
 /* =========================
@@ -213,32 +349,34 @@ const response =
 yesBtn.onclick = () => {
 
     response.innerHTML = `
-        ✨ Then let's keep finding
-        our way back to the stars. ❤️
+        ☔ Then let's keep dancing
+        through every kind of weather. ❤️
     `;
 
-    createMagicBurst();
+
+    createMagicRain();
 
 };
 
 
 /* =========================
-   MAGIC BURST
+   YES EFFECT
 ========================= */
 
 const effects =
     document.getElementById("effects");
 
 
-function createMagicBurst() {
+function createMagicRain() {
 
     const symbols = [
         "❤️",
+        "☔",
         "✨",
-        "⭐",
-        "🌙",
-        "✦"
+        "💧",
+        "🌧️"
     ];
+
 
     for (let i = 0; i < 35; i++) {
 
@@ -250,6 +388,7 @@ function createMagicBurst() {
             element.className =
                 "floating";
 
+
             element.innerHTML =
                 symbols[
                     Math.floor(
@@ -258,116 +397,31 @@ function createMagicBurst() {
                     )
                 ];
 
+
             element.style.left =
-                Math.random() * 100 + "vw";
+                Math.random() * 100 +
+                "vw";
+
 
             element.style.animationDuration =
-                (3 + Math.random() * 3) + "s";
+                3 +
+                Math.random() * 3 +
+                "s";
 
-            effects.appendChild(element);
+
+            effects.appendChild(
+                element
+            );
+
 
             setTimeout(() => {
+
                 element.remove();
+
             }, 6000);
 
-        }, i * 80);
+        }, i * 70);
+
     }
+
 }
-
-
-/* =========================
-   STARS
-========================= */
-
-const stars =
-    document.getElementById("stars");
-
-
-function createStars() {
-
-    for (let i = 0; i < 90; i++) {
-
-        const star =
-            document.createElement("div");
-
-        star.className = "star";
-
-        star.style.left =
-            Math.random() * 100 + "%";
-
-        star.style.top =
-            Math.random() * 100 + "%";
-
-        star.style.animationDelay =
-            Math.random() * 4 + "s";
-
-        star.style.animationDuration =
-            (2 + Math.random() * 4) + "s";
-
-        const size =
-            1 + Math.random() * 3;
-
-        star.style.width =
-            size + "px";
-
-        star.style.height =
-            size + "px";
-
-        stars.appendChild(star);
-    }
-}
-
-
-createStars();
-
-
-/* =========================
-   OCCASIONAL SHOOTING STAR
-========================= */
-
-function shootingStar() {
-
-    const star =
-        document.createElement("div");
-
-    star.style.position = "fixed";
-    star.style.width = "90px";
-    star.style.height = "2px";
-
-    star.style.background =
-        "linear-gradient(90deg, transparent, #fff4c7)";
-
-    star.style.top =
-        Math.random() * 45 + "%";
-
-    star.style.left =
-        Math.random() * 80 + "%";
-
-    star.style.transform =
-        "rotate(-25deg)";
-
-    star.style.zIndex = "2";
-
-    star.style.pointerEvents = "none";
-
-    star.style.transition =
-        "1.2s ease";
-
-    document.body.appendChild(star);
-
-    requestAnimationFrame(() => {
-
-        star.style.transform =
-            "translate(-250px, 180px) rotate(-25deg)";
-
-        star.style.opacity = "0";
-
-    });
-
-    setTimeout(() => {
-        star.remove();
-    }, 1400);
-}
-
-
-setInterval(shootingStar, 7000);
